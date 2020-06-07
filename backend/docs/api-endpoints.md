@@ -1,4 +1,4 @@
-ISMP Webapp API Endpoints
+# ISMP Webapp API Endpoints
 
 This document details the current state of the api, as well as the different parameters you can pass into each call. 
 
@@ -10,7 +10,7 @@ Things to note:
 * Api endpoints must end with `/`, so `/api/v1/category` will not work but `/api/v1/category/` will. Usually it will redirect you or give you html that says you need to add a `/` to your url.
 * By query parameters, I mean extra options that can be added to your api call like ?page=2 or ?published=true
 
-## API Endpoints
+# API Endpoints
 
 ## localhost:8000/api/v1/topic/
 
