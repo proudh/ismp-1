@@ -13,11 +13,12 @@ class Blogpost(models.Model):
     class Meta:
         ordering = ['-id']
 
-    media_url = models.CharField(max_length=200, blank=True)
+    media_url = models.URLField(max_length=1000, blank=True)
     author = models.ForeignKey(
         'profiles.Profile', on_delete=models.CASCADE, related_name='blogpost', default=1
     )
-    slug = models.SlugField(max_length=255)
+    # we're not currently using the slug field, so it's optional.
+    slug = models.SlugField(max_length=255, blank=True)
     is_featured = models.BooleanField(default=False)
 
     def __str__(self):
@@ -50,7 +51,7 @@ class Tag(models.Model):
     """
     class Meta:
         ordering = ['-id']
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     blogpost = models.ManyToManyField(Blogpost, blank=True)
 
     def __str__(self):
@@ -66,7 +67,7 @@ class Topic(models.Model):
     """
     class Meta:
         ordering = ['-id']
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     blogpost = models.ManyToManyField(Blogpost, blank=True)
 
     def __str__(self):

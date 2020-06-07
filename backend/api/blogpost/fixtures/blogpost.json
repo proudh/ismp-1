@@ -3,7 +3,7 @@
     "model": "blogpost.blogpost",
     "pk": 1,
     "fields": {
-      "media_url": "http://www.google.com",
+      "media_url": "https://www.youtube.com/watch?v=9fJEFi3ccwI",
       "author_id": 1,
       "is_featured": true
     }
@@ -12,7 +12,7 @@
     "model": "blogpost.blogpost",
     "pk": 2,
     "fields": {
-      "media_url": "http://www.example.com",
+      "media_url": "https://wallpaperplay.com/walls/full/a/5/8/199352.jpg",
       "author_id": 2,
       "is_featured": false
     }
@@ -21,7 +21,7 @@
     "model": "blogpost.blogpost",
     "pk": 3,
     "fields": {
-      "media_url": "http://www.sample.com",
+      "media_url": "https://www.youtube.com/watch?v=8G89StDuGe4",
       "author_id": 1
     }
   },
@@ -29,7 +29,7 @@
     "model": "blogpost.blogpost",
     "pk": 4,
     "fields": {
-      "media_url": "http://www.jordan.com",
+      "media_url": "https://lh3.googleusercontent.com/EuxBiZxUR_9SZ-6OnjOogPhcaDPNNrsekKKHnHs-0OMU6u1rMFhRqFtMn8dQ0j4L_adKb6a9AyUijgiWdkddRZj8TOl4gHaext_KEbblJy2iUyxx86Cw8F_Dg7XD5Fjxp_VBc_RWD_Khqqz2YvflnDUHxtpWG0vbWVymaV2jgQMs5qWlUKcNNkCyk7b6YfQ3KwOA9GQ9LTeJ7SxlL6g9Dtkecug4GHh5zAtJUhIDUdar-u4aQlBB-dbSufinePUEMiK1ECgUDlMg_arqEYE7a_rlfo6-xX2jI0_5bj2x34tEPwXtATz1ONV1nYCuf2hb1OFXG9wORQJpaZhsdItUjkYRXOkYNA__Ae2obBZCxHumvaQ4D4gic88hDKA5Lf_CrZhgOb8iJdHVooxgTN4_sb6TnzQc4Po-vw9HExyS-a3WaZonv64agT-awkQeGYXG-zQV7p62nOmhHRdOCz05N5-ieeOcreGZwlOuAKfUThB1lVQcXGXWIqTMUbgYnQcCqgMx92EDHix72i7LjTqM27mF_dkXhpw9zez5LzFc1MUTzy-lb-Zh5TMa4551YWTkC0PBKSQdAou-Ic4_p-52IalXZz5vOeziX15NVEfPDIy3VX70sFQKshrhZIF-kgbpGhnxECfjqZRkGQ7-o_Rohn1JrqN_VfmIarzMd6raNN8vPrrCIa8aRWSBvjQhgA=w1210-h908-no?authuser=0",
       "author_id": 2,
       "is_featured": true
     }
@@ -38,7 +38,7 @@
     "model": "blogpost.blogpost",
     "pk": 5,
     "fields": {
-      "media_url": "http://www.kobe.com",
+      "media_url": "https://www.youtube.com/watch?v=wfF0zHeU3Zs",
       "author_id": 1,
       "is_featured": true
     }
@@ -47,7 +47,7 @@
     "model": "blogpost.blogpost",
     "pk": 6,
     "fields": {
-      "media_url": "http://www.curry.com",
+      "media_url": "https://lh3.googleusercontent.com/xB2rr3yMCib-qxHLsAclgXuIqcb-AFpMTJtIFuf2p6261B5DDX8Tv-BPfdc0o3IueV3pEhjsjpexa4v0tJAtWKdj1VEeb-txXOoEZuJXtLlJz9pR8rmZYG63AfTs6ofGu3-lgGdMiXwyQ3-Oq4NGBY6Cx3_MDKKjBp6sFzhkKY6b5EepNGN7sqao1UlgbwZcxURqb9EQeyWSWlmlYr61nygaxEnfTUT4jvx06TB-K5u6EkXtlUfVA-oOpxFCAxOFGE_z5DZg5fjzTtRl3unm3S2S4oiEOe8xLdDJwahvR-5qrge4PRCYqCmUjQ1S4IG5-mjnw-IJ8yDtaaym2kYuZ-mn3pRjM-GYegz_BnECFXsKIHsbAsvalOdUEYtVGcwwSfm7JZu6Unafhvrm_LIYvEmPDyqljZbFGqHlUFIEwoAbKg_xGPpxOKaLfgRctdisCD9wSblceGB28rM6OLtGwyx_FFXe3Wj0L1zq8lTI82hFkBT2_47upC3vliJ4TyhsWME77OFMPTYyKx83QUV_cc_avMtSX6X5f2f6T8gARXKEWmNdFteP2XSkC3z7myiTc-80klg-Zl1jm6oGPkWWlcLBMUgD0PfqkM7_edmXKd4_v4S6TaSmsEd-MQYGZ0J3RJ7YGKLPi7hOM_SRRcT-BHz_80qMuXqE7KPlsG1UK2EQRze-4kI10N3e2D83Gw=w1210-h908-no?authuser=0",
       "author_id": 2,
       "is_featured": true
     }
@@ -56,7 +56,7 @@
     "model": "blogpost.blogpost",
     "pk": 7,
     "fields": {
-      "media_url": "http://www.khawi.com",
+      "media_url": "https://www.youtube.com/watch?v=hqIbEHNqbPs",
       "author_id": 1,
       "is_featured": false
     }
