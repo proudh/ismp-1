@@ -13,8 +13,29 @@ jobs:
       - run:
           command: make test
           name: Test
+  build-and-publish:
+    environment:
+      IMAGE_BEND: richyen/ismp-backend
+      IMAGE_FEND: richyen/ismp-frontend
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image and push
+          command: |
+            make build
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push $IMAGE_BEND:latest
+            docker push $IMAGE_FEND:latest
+
 
 workflows:
   main:
     jobs:
       - build-and-test
+      - build-and-publish:
+          filters:
+            branches:
+              only: master

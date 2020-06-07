@@ -27,6 +27,11 @@ docker:
 	@echo "Ensuring docker containers are up-to-date"
 	$(DOCKER_COMPOSE_PULL)
 
+.PHONY: build
+build:
+	@echo "Building images"
+	$(DOCKER_COMPOSE) build
+
 .PHONY: clean
 clean:
 	@echo "Cleaning up workdir"
