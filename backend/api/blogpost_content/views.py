@@ -3,9 +3,13 @@ These views pertain to BlogpostContent.
 """
 from datetime import datetime
 from django.contrib.postgres.search import SearchVector
+from django.db import transaction
 from rest_framework import generics, viewsets, status
 from rest_framework.response import Response
 from .models import BlogpostContent
+from api.blogpost.models import Blogpost, Tag, Topic
+from api.blogpost.serializers import BlogpostSerializer, TagSerializer, TopicSerializer
+from api.profiles.models import Profile
 from .serializers import BlogpostContentSerializer
 
 
@@ -82,3 +86,49 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
             result = result.filter(is_draft=False)
             result = result.filter(publish_at__lte=datetime.now())
         return result
+
+    @transaction.atomic
+    def create(self, request, *args, **kwargs):
+        request_data = request.data
+        if 'blogpost' in request_data:
+            blogpost = Blogpost.objects.get(pk=request_data['blogpost'])
+        else:
+            blogpost = Blogpost(author=Profile.objects.get(pk=1))
+        query_media_url = request.data.get('media_url', '')
+        if not query_media_url:
+            blogpost.media_url = query_media_url
+        query_is_featured = request_data.get('is_featured', False)
+        if query_is_featured:
+            blogpost.is_featured = query_is_featured
+        print(str(blogpost))
+
+        blogpost_fields = Blogpost._meta.get_fields()
+        print([f.name for f in blogpost_fields])
+        blogpost_content_fields = BlogpostContent._meta.get_fields()
+        print([f.name for f in blogpost_content_fields])
+        print([f.name for f in blogpost_content_fields])
+        for field in blogpost_fields:
+            if field.name != 'blogpost' and field.name in request_data:
+                setattr(blogpost, field.name, request_data[field.name])
+        blogpost.save()
+
+        blogpost_content_data = {}
+        for field in blogpost_content_fields:
+            if field.name != 'blogpost_content' and field.name in request_data:
+                blogpost_content_data[field.name] = request_data[field.name]
+        blogpost_content_data['blogpost'] = blogpost.id
+
+        if 'tags' in request_data:
+            tag_list = request_data['tags'].replace(',', ' ').split()
+            for tag_name in tag_list:
+                tag = Tag.objects.get_or_create(name=tag_name)[0]
+                print(str(tag))
+                tag.save()
+                tag.blogposts.add(blogpost)
+
+        print(request_data)
+        ser = BlogpostSerializer(data=blogpost_content_data)
+        if ser.is_valid():
+            ser.save()
+            return Response({'status': 'success', 'body': str(request_data)})
+        return Response({'status': 'failed validation', 'body': str(ser.errors)})

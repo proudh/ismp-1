@@ -75,9 +75,9 @@ class BlogpostContent(models.Model):
         return instance
 
     def save(self, *args, **kwargs):  # pylint: disable=signature-differs
-        if self.blogpost is None:
-            # TODO: have this come from the request once we
-            #  work out the auth flow
-            self.blogpost = Blogpost(author=Profile.objects.get(pk=1))
-            self.blogpost.save()
+        # if self.blogpost is None:
+        #     # TODO: have this come from the request once we
+        #     #  work out the auth flow
+        #     self.blogpost = Blogpost(author=Profile.objects.get(pk=1))
+        #     self.blogpost.save()
         super(BlogpostContent, self).save(*args, **kwargs)

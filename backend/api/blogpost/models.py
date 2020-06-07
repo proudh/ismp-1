@@ -9,7 +9,7 @@ class Blogpost(models.Model):
     author = models.ForeignKey(
         'profiles.Profile', on_delete=models.CASCADE, related_name='blogpost', default=1
     )
-    slug = models.SlugField(max_length=255)
+    slug = models.SlugField(max_length=255, blank=True)
     is_featured = models.BooleanField(default=False)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class Tag(models.Model):
     class Meta:
         ordering = ['-id']
     name = models.CharField(max_length=100)
-    blogpost = models.ManyToManyField(Blogpost, blank=True)
+    blogposts = models.ManyToManyField(Blogpost, blank=True)
 
     def __str__(self):
         return "{} - {}".format(self.id, self.name)
@@ -48,7 +48,7 @@ class Topic(models.Model):
     class Meta:
         ordering = ['-id']
     name = models.CharField(max_length=100)
-    blogpost = models.ManyToManyField(Blogpost, blank=True)
+    blogposts = models.ManyToManyField(Blogpost, blank=True)
 
     def __str__(self):
         return "{} - {}".format(self.id, self.name)

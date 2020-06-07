@@ -3,7 +3,7 @@
     "pk": 1,
     "fields": {
         "name": "mastering english",
-        "blogpost": [1]
+        "blogposts": [1]
     }
 },
 {
@@ -11,7 +11,7 @@
     "pk": 2,
     "fields": {
         "name": "housing tips",
-        "blogpost": [2]
+        "blogposts": [2]
     }
 },
 {
@@ -19,7 +19,7 @@
     "pk": 3,
     "fields": {
         "name": "adjusting to the US",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -27,7 +27,7 @@
     "pk": 4,
     "fields": {
         "name": "productivity tips",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -35,7 +35,7 @@
     "pk": 5,
     "fields": {
         "name": "American society/societal norms",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -43,7 +43,7 @@
     "pk": 6,
     "fields": {
         "name": "places to visit",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -51,7 +51,7 @@
     "pk": 7,
     "fields": {
         "name": "places to visit",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -59,7 +59,7 @@
     "pk": 8,
     "fields": {
         "name": "career/job advice",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -67,7 +67,7 @@
     "pk": 9,
     "fields": {
         "name": "American culture",
-        "blogpost": []
+        "blogposts": []
     }
 },
 {
@@ -75,7 +75,7 @@
     "pk": 10,
     "fields": {
         "name": "writing tips",
-        "blogpost": []
+        "blogposts": []
     }
 }
 ]
