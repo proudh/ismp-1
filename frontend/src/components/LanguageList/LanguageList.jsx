@@ -16,22 +16,27 @@ const LanguageList = () => {
   const defaultSetLang = i18n.language;
   const [langValue, setLangValue] = useState(defaultSetLang);
 
-  const selectLanguage = (e, data) => {
-    setLangValue(data.value);
-    i18n.changeLanguage(data.value);
+  const selectLanguage = lang => {
+    setLangValue(lang);
+    i18n.changeLanguage(lang);
   };
 
   return (
-    <Dropdown
-      button
-      className="icon small"
-      floating
-      labeled
-      icon="world"
-      options={languageOptions}
-      value={langValue}
-      onChange={selectLanguage}
-    />
+    <Dropdown item icon="world" simple>
+      <Dropdown.Menu style={{ marginTop: '-5px' }}>
+        {languageOptions.map(opt => {
+          return (
+            <Dropdown.Item
+              active={opt.value === langValue}
+              key={opt.key}
+              onClick={() => selectLanguage(opt.value)}
+            >
+              {opt.text}
+            </Dropdown.Item>
+          );
+        })}
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

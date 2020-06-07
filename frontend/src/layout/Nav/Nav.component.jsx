@@ -45,15 +45,6 @@ const Nav = ({ mobile, history }) => {
             </Menu.Item>
           );
         })}
-        <Menu.Item
-          key="language-list"
-          name="language-list"
-          style={{ alignSelf: 'center' }}
-        >
-          <Dropdown.Menu>
-            <LanguageList />
-          </Dropdown.Menu>
-        </Menu.Item>
         {mobile ? null : (
           <Menu.Item
             key="application-form"
@@ -67,6 +58,15 @@ const Nav = ({ mobile, history }) => {
             </Button>
           </Menu.Item>
         )}
+        <Menu.Item
+          key="language-list"
+          name="language-list"
+          style={{ alignSelf: 'center', padding: 0 }}
+        >
+          <Dropdown.Menu>
+            <LanguageList />
+          </Dropdown.Menu>
+        </Menu.Item>
       </Menu.Menu>
     </>
   );

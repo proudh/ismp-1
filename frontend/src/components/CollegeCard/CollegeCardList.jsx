@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid } from 'semantic-ui-react';
 import Styled from 'styled-components';
 
-import { Schools } from '../../utils/agent.js';
+import { schools } from '../../utils/agent.js';
 import CollegeCard from './CollegeCard';
 
 const StyledHeader = Styled.h3`
@@ -18,9 +18,9 @@ const CollegeCardList = () => {
   useEffect(() => {
     const collegeInfo = async () => {
       try {
-        const collegesData = await Schools.get_all().then(
-          response => response.results
-        );
+        const collegesData = await schools
+          .get_all()
+          .then(response => response.results);
         setIsLoading(false);
         setSchoolsInfo(collegesData);
       } catch (error) {

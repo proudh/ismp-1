@@ -72,7 +72,7 @@ const StyledLink = Styled(Link)`
 const Home = () => {
   const { t } = useTranslation('home');
 
-  console.log(useParams);
+  // console.log(useParams);
   const [featuredBlogs, setFeaturedBlogs] = useState([
     {
       title_content: 'placeholder',
@@ -131,9 +131,12 @@ const Home = () => {
         <StyledLink to="/">view all</StyledLink>
       </TitleContainer>
 
-      <ul>{featuredBlogs.map((blog) => (
-        <li>Title: {blog.title_content}, Description {blog.body_content}</li>
-      ))}
+      <ul>
+        {featuredBlogs.map((blog, index) => (
+          <li key={index}>
+            Title: {blog.title_content}, Description {blog.body_content}
+          </li>
+        ))}
       </ul>
       <Subscribe />
     </>
