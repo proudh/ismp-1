@@ -354,7 +354,7 @@ POST
     ]
     }
 
-# localhost:8000/api/v1/school/<ID>
+## localhost:8000/api/v1/school/<ID>
 
 <ins>Description</ins>: Get the information associated with a particular school
 
