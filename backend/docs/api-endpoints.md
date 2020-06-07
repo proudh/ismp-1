@@ -175,6 +175,8 @@ GET - gets the existing blogpostcontents. For populating pages.
 
 * Query: use this for searches. It will search the contents of the title and body for your query string. Supports partial word matching.
 
+* Author: since a blogpostcontent is associated with only one blogpost, filter by the id of the author of the blogpost. This is just for convenience since author is technically a field in blogpost.
+
 POST - creates a new blogpostcontent. Use this when creating a post for the first time.
 
 <ins>Required fields</ins>:

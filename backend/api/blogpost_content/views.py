@@ -59,8 +59,9 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
         tags associated with the blogpost.
         :return: a set of BlogpostContent
         """
-        queried_language = self.request.query_params.get('language', None)
+        queried_author = self.request.query_params.get('author', None)
         queried_blogpost = self.request.query_params.get('blogpost', None)
+        queried_language = self.request.query_params.get('language', None)
         query_text = self.request.query_params.get('query', None)
         featured = self.request.query_params.get('featured', False)
         published_only = self.request.query_params.get('published', False)
@@ -70,6 +71,9 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
                 annotate(search=search_vector).filter(search__icontains=query_text)
         else:
             result = BlogpostContent.objects.all()
+
+        if queried_author is not None:
+            result = result.filter(blogpost__author__id=queried_author)
         if queried_language is not None:
             result = result.filter(language=queried_language)
         if queried_blogpost is not None:

@@ -13,8 +13,7 @@ class BaseViewTest(APITestCase):
 
     @staticmethod
     def create_blogpost(media_url="", author=None, is_featured=False):
-        if True:  # media_link should be optional
-            Blogpost.objects.create(media_url=media_url, author=author, is_featured=is_featured)
+        Blogpost.objects.create(media_url=media_url, author=author, is_featured=is_featured)
 
     @staticmethod
     def create_blogpost_content(
@@ -68,12 +67,19 @@ class GetAllBlogpostContentsTest(BaseViewTest):
 class GetByQueryParamTest(BaseViewTest):
     def setUp(self):
         # add test data
+        self.BLOGPOSTCONTENT_URL = "/api/v1/blogpostcontent/"
         self.user = User.objects.create_user(username="test",
                                              email="test@gmail.com",
                                              password="password")
+        self.user2 = User.objects.create_user(username="test2",
+                                              email="test2@gmail.com",
+                                              password="password2")
         self.profile = self.user.profile
+        self.profile2 = self.user2.profile
         self.create_blogpost(media_url="youtube.com", author=self.profile, is_featured=False)
+        self.create_blogpost(media_url="google.com", author=self.profile2, is_featured=True)
         valid_blogpost = Blogpost.objects.get(author=self.profile)
+        valid_blogpost2 = Blogpost.objects.get(author=self.profile2)
         self.created_blog_id = valid_blogpost.id
         self.bpc1 = BlogpostContent.objects.create(
             language="en",
@@ -84,7 +90,7 @@ class GetByQueryParamTest(BaseViewTest):
         )
         self.bpc2 = BlogpostContent.objects.create(
             language="cn",
-            blogpost=valid_blogpost,
+            blogpost=valid_blogpost2,
             title_content="zhongwentitle",
             body_content="zhe shi zhongwenbodycontent",
             is_draft=False,
@@ -97,7 +103,7 @@ class GetByQueryParamTest(BaseViewTest):
         content a match will occur (even if the query is not a full word).
         :return:
         """
-        response = self.client.get("/api/v1/blogpostcontent/", {'query': 'zhongwe'}, format='json')
+        response = self.client.get(self.BLOGPOSTCONTENT_URL, {'query': 'zhongwe'}, format='json')
         expected = BlogpostContent.objects.get(pk=self.bpc2.id)
         serialized = BlogpostContentSerializer(expected)
         self.assertEqual(response.data['results'][0], serialized.data)
@@ -107,7 +113,7 @@ class GetByQueryParamTest(BaseViewTest):
         Tests filtering out drafts.
         :return: nothing
         """
-        response = self.client.get("/api/v1/blogpostcontent/", {'published': 'true'}, format='json')
+        response = self.client.get(self.BLOGPOSTCONTENT_URL, {'published': 'true'}, format='json')
         expected = BlogpostContent.objects.get(pk=self.bpc2.id)
         serialized = BlogpostContentSerializer(expected)
         self.assertEqual(response.data['results'][0], serialized.data)
@@ -115,8 +121,17 @@ class GetByQueryParamTest(BaseViewTest):
 
     def test_featured_only(self):
         """
-        Tests filtering out drafts.
+        Tests getting featured blogpostcontents only.
         :return: nothing
         """
-        response = self.client.get("/api/v1/blogpostcontent/", {'featured': 'true'}, format='json')
-        self.assertEqual(len(response.data['results']), 0)
+        response = self.client.get(self.BLOGPOSTCONTENT_URL, {'featured': 'true'}, format='json')
+        self.assertEqual(len(response.data['results']), 1)
+
+    def test_get_by_author(self):
+        """
+        Tests filtering by author.
+        :return: nothing
+        """
+        response = self.client.get(
+            self.BLOGPOSTCONTENT_URL, {"author": self.profile2.id}, format='json')
+        self.assertEqual(len(response.data['results']), 1)

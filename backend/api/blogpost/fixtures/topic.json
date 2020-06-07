@@ -50,7 +50,7 @@
     "model": "blogpost.topic",
     "pk": 7,
     "fields": {
-        "name": "places to visit",
+        "name": "writing tips",
         "blogpost": []
     }
 },
@@ -67,14 +67,6 @@
     "pk": 9,
     "fields": {
         "name": "American culture",
-        "blogpost": []
-    }
-},
-{
-    "model": "blogpost.topic",
-    "pk": 10,
-    "fields": {
-        "name": "writing tips",
         "blogpost": []
     }
 }
