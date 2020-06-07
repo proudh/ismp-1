@@ -36,6 +36,7 @@ workflows:
     jobs:
       - build-and-test
       - build-and-publish:
+          context: ismp_website
           filters:
             branches:
               only: master
