@@ -10,7 +10,7 @@ class ApplicationFormViewSetTest(APITestCase):
         ApplicationForm.objects.create(
             first_name="Bobby",
             last_name="Bass",
-            birth_date=datetime.now(),
+            birth_date='2000-01-01',
             gender="M",
             country_of_origin='USA',
             email="bbass@rocketmail.com",
@@ -30,7 +30,7 @@ class ApplicationFormViewSetTest(APITestCase):
         self.client.post("/api/v1/applicationForms/", {
             "first_name": "Krikor",
             "last_name": "Ailanjian",
-            "birth_date": "2020-05-07T01:05:00Z",
+            "birth_date": "2020-05-07",
             "gender": "M",
             "country_of_origin": "USA",
             "email": "kailanjian@gmail.com",
