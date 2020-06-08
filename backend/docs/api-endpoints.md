@@ -199,75 +199,97 @@ POST - creates a new blogpostcontent. Use this when creating a post for the firs
     "results": [
         {
             "id": 3,
-            "language": "en",
-            "title_content": "english training",
-            "body_content": "<p>talk to people</p>",
-            "created_at": "2020-05-07T00:00:00Z",
-            "updated_at": "2020-05-07T00:00:00Z",
-            "publish_at": "2020-06-02T18:04:44.296110Z",
-            "is_draft": false,
             "blogpost": {
                 "id": 3,
-                "media_url": "http://www.sample.com",
-                "slug": "",
-                "is_featured": false,
+                "media_url": "https://www.youtube.com/watch?v=8G89StDuGe4",
                 "author": {
                     "id": 1,
-                    "created_at": "2020-06-07T05:16:11.085974Z",
-                    "updated_at": "2020-06-07T05:16:11.086002Z",
+                    "created_at": "2020-06-07T17:11:40.468702Z",
+                    "updated_at": "2020-06-07T17:11:40.468726Z",
                     "bio": "",
                     "image": "",
                     "user": 1
-                }
-            }
+                },
+                "slug": "",
+                "is_featured": false,
+                "topic_set": [],
+                "tag_set": []
+            },
+            "title_content": "english training",
+            "body_content": "<p>talk to people</p>",
+            "language": "en",
+            "is_draft": false,
+            "created_at": "2020-05-07T00:00:00Z",
+            "updated_at": "2020-05-07T00:00:00Z",
+            "publish_at": "2020-06-02T18:04:44.296110Z"
         },
         {
             "id": 2,
-            "language": "en",
-            "title_content": "test blogpost with html",
-            "body_content": "<div>hello world</div>",
-            "created_at": "2020-05-07T00:00:00Z",
-            "updated_at": "2020-05-07T00:00:00Z",
-            "publish_at": null,
-            "is_draft": true,
             "blogpost": {
                 "id": 2,
-                "media_url": "http://www.example.com",
-                "slug": "",
-                "is_featured": false,
+                "media_url": "https://wallpaperplay.com/walls/full/a/5/8/199352.jpg",
                 "author": {
                     "id": 2,
-                    "created_at": "2020-06-07T05:16:11.096872Z",
-                    "updated_at": "2020-06-07T05:16:11.096913Z",
+                    "created_at": "2020-06-07T17:11:40.478442Z",
+                    "updated_at": "2020-06-07T17:11:40.478467Z",
                     "bio": "",
                     "image": "",
                     "user": 2
-                }
-            }
+                },
+                "slug": "",
+                "is_featured": false,
+                "topic_set": [
+                    {
+                        "id": 2,
+                        "name": "housing tips",
+                        "blogpost": [
+                            2
+                        ]
+                    }
+                ],
+                "tag_set": []
+            },
+            "title_content": "test blogpost with html",
+            "body_content": "<div>hello world</div>",
+            "language": "en",
+            "is_draft": true,
+            "created_at": "2020-05-07T00:00:00Z",
+            "updated_at": "2020-05-07T00:00:00Z",
+            "publish_at": null
         },
         {
             "id": 1,
-            "language": "en",
-            "title_content": "my blogpost",
-            "body_content": "hello world",
-            "created_at": "2020-05-07T00:00:00Z",
-            "updated_at": "2020-05-07T00:00:00Z",
-            "publish_at": "2020-06-02T18:04:44.296110Z",
-            "is_draft": false,
             "blogpost": {
                 "id": 1,
-                "media_url": "http://www.google.com",
-                "slug": "",
-                "is_featured": true,
+                "media_url": "https://www.youtube.com/watch?v=9fJEFi3ccwI",
                 "author": {
                     "id": 1,
-                    "created_at": "2020-06-07T05:16:11.085974Z",
-                    "updated_at": "2020-06-07T05:16:11.086002Z",
+                    "created_at": "2020-06-07T17:11:40.468702Z",
+                    "updated_at": "2020-06-07T17:11:40.468726Z",
                     "bio": "",
                     "image": "",
                     "user": 1
-                }
-            }
+                },
+                "slug": "",
+                "is_featured": true,
+                "topic_set": [
+                    {
+                        "id": 1,
+                        "name": "mastering english",
+                        "blogpost": [
+                            1
+                        ]
+                    }
+                ],
+                "tag_set": []
+            },
+            "title_content": "my blogpost",
+            "body_content": "hello world",
+            "language": "en",
+            "is_draft": false,
+            "created_at": "2020-05-07T00:00:00Z",
+            "updated_at": "2020-05-07T00:00:00Z",
+            "publish_at": "2020-06-02T18:04:44.296110Z"
         }
     ]
     }
