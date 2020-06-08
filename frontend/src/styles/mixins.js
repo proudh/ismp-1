@@ -34,8 +34,18 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: ${colors.green};
+      color: ${colors.purple};
       outline: 0;
+    }
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+
+    &:active {
+      color: ${colors.purple};
     }
   `,
 
@@ -46,17 +56,17 @@ const mixins = {
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
-    color: ${colors.green};
+    color: ${colors.purple};
     &:hover,
     &:focus,
     &:active {
-      color: ${colors.green};
+      color: ${colors.purple};
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: ${colors.green} !important;
+        color: ${colors.purple} !important;
         transition: ${theme.transition};
       }
     }
@@ -67,10 +77,17 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: ${colors.green};
+      background-color: ${colors.purple};
       transition: ${theme.transition};
       opacity: 0.5;
     }
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    text-decoration-line: underline;
   `,
 
   sidePadding: css`
