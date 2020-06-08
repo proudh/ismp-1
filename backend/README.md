@@ -1,4 +1,4 @@
-# Django application
+# ISMP Website Backend Quick-start
 
 To work on the backend, you'll need to have Django running in a Docker container, pointing to this folder.  If that all seems like a foreign language to you, simply go `cd ../` up to the parent folder and run `docker-compose up`
 
