@@ -274,7 +274,7 @@ const ApplicationForm = props => {
       if (validateStep(currentStep)) {
         signup().then((result) => {
           if (result) {
-            props.history.push('/application-form-success');
+            props.history.push('/apply-success');
           }
         });
       }

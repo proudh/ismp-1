@@ -61,10 +61,10 @@ const MobileContainer = ({ children }) => {
                 <Icon name="sidebar" />
               </Menu.Item>
               <Menu.Item
-                key="application-form"
+                key="apply"
                 as={Link}
-                name="application-form"
-                to="/application-form"
+                name="apply"
+                to="/apply"
                 style={{ alignSelf: 'center' }}
                 position="right"
               >

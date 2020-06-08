@@ -21,12 +21,12 @@ class Routes extends Component {
             <Route exact path="/blog-type" component={RouteEnum.BLOG_TYPE} />
             <Route
               exact
-              path="/application-form"
+              path="/apply"
               component={RouteEnum.APPLICATION_FORM}
             />
             <Route
               exact
-              path="/application-form-success"
+              path="/apply-success"
               component={RouteEnum.APPLICATION_FORM_SUCCESS}
             />
             <Route exact path="/mentors" component={RouteEnum.MENTORS} />

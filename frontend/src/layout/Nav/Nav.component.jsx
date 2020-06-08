@@ -47,10 +47,10 @@ const Nav = ({ mobile, history }) => {
         })}
         {mobile ? null : (
           <Menu.Item
-            key="application-form"
+            key="apply"
             as={Link}
-            name="application-form"
-            to="/application-form"
+            name="apply"
+            to="/apply"
             style={{ alignSelf: 'center' }}
           >
             <Button primary size="medium">

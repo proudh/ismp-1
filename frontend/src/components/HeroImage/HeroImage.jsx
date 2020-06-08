@@ -94,7 +94,7 @@ const HeroImage = () => {
           {t('connecting_international_students')}
         </StyledSubTitle>
         <ButtonContainer>
-          <Link as={Link} to="/application-form">
+          <Link as={Link} to="/apply">
             <ApplyButton>{t('apply_now')}</ApplyButton>
           </Link>
           <Link as={Link} to="/about">

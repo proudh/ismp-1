@@ -109,7 +109,7 @@ const About = () => {
             mentorship at your campus!
           </Grid.Column>
           <Grid.Column computer={3} mobile={16} tablet={2}>
-            <StyledLink to="/application-form">Apply Now</StyledLink>
+            <StyledLink to="/apply">Apply Now</StyledLink>
           </Grid.Column>
         </Grid.Row>
       </Grid>
