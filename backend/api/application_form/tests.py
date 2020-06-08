@@ -26,7 +26,7 @@ class ApplicationFormViewSetTest(APITestCase):
         )
 
     def test_post_application_form(self):
-        self.client.post("/api/v1/applicationForms/", {
+        self.client.post("/api/v1/application/", {
             "first_name": "Krikor",
             "last_name": "Ailanjian",
             "birth_date": "2020-05-07",
@@ -48,7 +48,7 @@ class ApplicationFormViewSetTest(APITestCase):
         self.assertEqual(2, len(ApplicationForm.objects.all()))
 
     def test_get_application_form(self):
-        response = self.client.get("/api/v1/applicationForms/")
+        response = self.client.get("/api/v1/application/")
 
         expected = ApplicationForm.objects.all()
         serialized = ApplicationFormSerializer(expected, many=True)

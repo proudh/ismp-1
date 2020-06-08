@@ -94,7 +94,7 @@ const useApplicationFormFeedback = callback => {
 
 const ApplicationForm = props => {
   const signup = () => {
-    return requests.post('applicationForms/', inputs).then(
+    return requests.post('application/', inputs).then(
       response => {
         alert('Successfully Posted');
         // TODO: Need to replace this alert with a toast or better notification, redirect, etc.
