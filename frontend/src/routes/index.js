@@ -10,6 +10,7 @@ import Stories from '../pages/Stories/Stories';
 import Blogpost from '../pages/Blogs/Blogpost';
 import Terms from '../pages/Legal/Terms';
 import Privacy from '../pages/Legal/Privacy';
+import Leadership from '../pages/Leadership/Leadership';
 import BlogList from 'pages/Blogs/BlogListPage';
 
 export const HOME = Home;
@@ -29,3 +30,4 @@ export const APPLICATIONFORM = ApplicationForm;
 export const BLOGPOST = Blogpost;
 export const PRIVACY = Privacy;
 export const TERMS = Terms;
+export const LEADERSHIP = Leadership;

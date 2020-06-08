@@ -30,6 +30,7 @@ class Routes extends Component {
               component={RouteEnum.APPLICATION_FORM_SUCCESS}
             />
             <Route exact path="/mentors" component={RouteEnum.MENTORS} />
+            <Route exact path="/leadership" component={RouteEnum.LEADERSHIP} />
             <Route exact path="/program" component={RouteEnum.PROGRAM} />
             <Route exact path="/about" component={RouteEnum.ABOUT} />
             <Route exact path="/stories" component={RouteEnum.STORIES} />

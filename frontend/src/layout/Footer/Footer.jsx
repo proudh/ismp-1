@@ -34,6 +34,7 @@ const footerContent = [
       { text: 'Mission + Values', link: '/about' },
       { text: 'Our Program', link: '/program' },
       { text: 'Mentors', link: '/mentors' },
+      { text: 'Leadership', link: '/leadership' },
       { text: 'Testimonials', link: '/stories' },
       { text: 'Contact Us', link: '/contact' }
     ],
