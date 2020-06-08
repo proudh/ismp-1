@@ -24,35 +24,32 @@ Sample Response:
 
 
     {
-    "count": 10,
+    "count": 9,
     "next": null,
     "previous": "http://localhost:8000/api/v1/topic/",
     "results": [
         {
-            "id": 5,
-            "blogpost": [],
-            "name": "American society/societal norms"
-        },
-        {
             "id": 4,
             "blogpost": [],
-            "name": "productivity tips"
+            "name": "productivity tips",
+            "description": "Still waiting on a description for this."
         },
         {
             "id": 3,
             "blogpost": [],
-            "name": "adjusting to the US"
+            "name": "Transitioning to America",
+            "description": "We will cover topics like safety tips, American culture, and advice for making new friends to help make your transition to America go as smoothly as possible!"
         },
         {
             "id": 2,
             "blogpost": [
                 {
                     "id": 2,
-                    "media_url": "http://www.example.com",
+                    "media_url": "https://wallpaperplay.com/walls/full/a/5/8/199352.jpg",
                     "author": {
                         "id": 2,
-                        "created_at": "2020-06-07T05:16:11.096872Z",
-                        "updated_at": "2020-06-07T05:16:11.096913Z",
+                        "created_at": "2020-06-08T05:28:26.619684Z",
+                        "updated_at": "2020-06-08T05:28:26.619709Z",
                         "bio": "",
                         "image": "",
                         "user": 2
@@ -63,6 +60,7 @@ Sample Response:
                         {
                             "id": 2,
                             "name": "housing tips",
+                            "description": "Still waiting on a description for this.",
                             "blogpost": [
                                 2
                             ]
@@ -71,18 +69,19 @@ Sample Response:
                     "tag_set": []
                 }
             ],
-            "name": "housing tips"
+            "name": "housing tips",
+            "description": "Still waiting on a description for this."
         },
         {
             "id": 1,
             "blogpost": [
                 {
                     "id": 1,
-                    "media_url": "http://www.google.com",
+                    "media_url": "https://www.youtube.com/watch?v=9fJEFi3ccwI",
                     "author": {
                         "id": 1,
-                        "created_at": "2020-06-07T05:16:11.085974Z",
-                        "updated_at": "2020-06-07T05:16:11.086002Z",
+                        "created_at": "2020-06-08T05:28:26.606828Z",
+                        "updated_at": "2020-06-08T05:28:26.606859Z",
                         "bio": "",
                         "image": "",
                         "user": 1
@@ -92,7 +91,8 @@ Sample Response:
                     "topic_set": [
                         {
                             "id": 1,
-                            "name": "mastering english",
+                            "name": "English Training: Writing",
+                            "description": "English is difficult to master, especially in the university setting.  We will cover basic and advance English writing techniques such as essay organization, professional email writing, and common grammar mistakes to help you succeed in your classes and research!",
                             "blogpost": [
                                 1
                             ]
@@ -101,7 +101,8 @@ Sample Response:
                     "tag_set": []
                 }
             ],
-            "name": "mastering english"
+            "name": "English Training: Writing",
+            "description": "English is difficult to master, especially in the university setting.  We will cover basic and advance English writing techniques such as essay organization, professional email writing, and common grammar mistakes to help you succeed in your classes and research!"
         }
     ]
     }

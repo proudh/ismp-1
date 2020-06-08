@@ -14,6 +14,10 @@ class BaseViewTest(APITestCase):
         Blogpost.objects.create(media_url=media_url, author=author)
 
     def setUp(self):
+        """
+        Set up data.
+        :return:
+        """
         # add test data
         self.user = User.objects.create_user(username="test",
                                              email="test@gmail.com",
@@ -27,6 +31,10 @@ class BaseViewTest(APITestCase):
 
 class GetAllBlogpostsTest(BaseViewTest):
     def test_get_all_blogposts(self):
+        """
+        Test hitting the api endpoint to get all blogposts.
+        :return:
+        """
         # hit the API endpoint
         response = self.client.get(
             reverse("blogpost-list", kwargs={"version": "v1"})
@@ -40,6 +48,10 @@ class GetAllBlogpostsTest(BaseViewTest):
 
 class GetBlogpostsByTagTest(APITestCase):
     def setUp(self):
+        """
+        Set up data.
+        :return:
+        """
         self.user = User.objects.create_user(username="test",
                                              email="test@gmail.com",
                                              password="password")
@@ -56,6 +68,10 @@ class GetBlogpostsByTagTest(APITestCase):
         self.tag_2.blogpost.set([self.blogpost_1])
 
     def test_get_blogposts_for_tag(self):
+        """
+        Tests getting all blogposts with a particular tag.
+        :return:
+        """
         response = self.client.get("/api/v1/blogpost/?tag_id={}".format(self.tag_1.id))
         expected = Blogpost.objects.all()
         serialized = BlogpostSerializer(expected, many=True)
@@ -68,8 +84,11 @@ class GetBlogpostsByTagTest(APITestCase):
 
 
 class TagViewSetTest(APITestCase):
-    # Set up data
     def setUp(self):
+        """
+        Set up data.
+        :return:
+        """
         self.user = User.objects.create_user(username="test",
                                              email="test@gmail.com",
                                              password="password")
@@ -86,16 +105,22 @@ class TagViewSetTest(APITestCase):
         self.tag_1.blogpost.set([self.blogpost_2, self.blogpost_1, self.blogpost_3])
         self.tag_2.blogpost.set([self.blogpost_1])
 
-    # Test tag retrieval (all tags)
     def test_get_all_tags(self):
+        """
+        Test tag retrieval (all tags).
+        :return:
+        """
         response = self.client.get("/api/v1/tag/")
         expected = Tag.objects.all()
         serialized = TagSerializer(expected, many=True)
         self.assertEqual(response.data['results'], serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # Test tag creation
     def test_post_tag(self):
+        """
+        Test tag creation.
+        :return: nothing.
+        """
         self.assertEqual(len(Tag.objects.all()), 3)
         response = self.client.post("/api/v1/tag/",
                                     {
@@ -107,8 +132,11 @@ class TagViewSetTest(APITestCase):
 
 
 class TopicViewSetTest(APITestCase):
-    # Set up data
     def setUp(self):
+        """
+        Set up data.
+        :return: nothing
+        """
         self.user = User.objects.create_user(username="test",
                                              email="test@gmail.com",
                                              password="password")
@@ -118,23 +146,30 @@ class TopicViewSetTest(APITestCase):
         self.blogpost_2 = Blogpost.objects.create(author=self.profile)
         self.blogpost_3 = Blogpost.objects.create(author=self.profile)
 
-        self.topic_1 = Topic.objects.create(name="everything")
-        self.topic_2 = Topic.objects.create(name="something")
+        self.topic_1 = Topic.objects.create(
+            name="everything", description="description of everything")
+        self.topic_2 = Topic.objects.create(name="something", description="")
         self.topic_3 = Topic.objects.create(name="funny")
 
         self.topic_1.blogpost.set([self.blogpost_2, self.blogpost_1, self.blogpost_3])
         self.topic_2.blogpost.set([self.blogpost_1])
 
-    # Test tag retrieval (all tags)
     def test_get_all_topics(self):
+        """
+        Test tag retrieval (all tags)
+        :return: nothing
+        """
         response = self.client.get("/api/v1/topic/")
         expected = Topic.objects.all()
         serialized = TopicSerializer(expected, many=True)
         self.assertEqual(response.data['results'], serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # Test tag creation
     def test_post_topic(self):
+        """
+        Test tag creation
+        :return:
+        """
         self.assertEqual(len(Topic.objects.all()), 3)
         response = self.client.post("/api/v1/topic/",
                                     {

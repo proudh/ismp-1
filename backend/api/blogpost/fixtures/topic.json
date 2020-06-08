@@ -2,7 +2,8 @@
     "model": "blogpost.topic",
     "pk": 1,
     "fields": {
-        "name": "mastering english",
+        "name": "English Training: Writing",
+        "description": "English is difficult to master, especially in the university setting.  We will cover basic and advance English writing techniques such as essay organization, professional email writing, and common grammar mistakes to help you succeed in your classes and research!",
         "blogpost": [1]
     }
 },
@@ -11,6 +12,7 @@
     "pk": 2,
     "fields": {
         "name": "housing tips",
+        "description": "Still waiting on a description for this.",
         "blogpost": [2]
     }
 },
@@ -18,7 +20,8 @@
     "model": "blogpost.topic",
     "pk": 3,
     "fields": {
-        "name": "adjusting to the US",
+        "name": "Transitioning to America",
+        "description": "We will cover topics like safety tips, American culture, and advice for making new friends to help make your transition to America go as smoothly as possible!",
         "blogpost": []
     }
 },
@@ -27,6 +30,7 @@
     "pk": 4,
     "fields": {
         "name": "productivity tips",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 },
@@ -35,6 +39,7 @@
     "pk": 5,
     "fields": {
         "name": "American society/societal norms",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 },
@@ -43,6 +48,7 @@
     "pk": 6,
     "fields": {
         "name": "places to visit",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 },
@@ -51,6 +57,7 @@
     "pk": 7,
     "fields": {
         "name": "writing tips",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 },
@@ -59,6 +66,7 @@
     "pk": 8,
     "fields": {
         "name": "career/job advice",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 },
@@ -67,6 +75,7 @@
     "pk": 9,
     "fields": {
         "name": "American culture",
+        "description": "Still waiting on a description for this.",
         "blogpost": []
     }
 }

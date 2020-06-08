@@ -68,6 +68,7 @@ class Topic(models.Model):
     class Meta:
         ordering = ['-id']
     name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
     blogpost = models.ManyToManyField(Blogpost, blank=True)
 
     def __str__(self):
