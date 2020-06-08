@@ -1,26 +1,29 @@
 import Section from '../../layout/Section';
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Container, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
+const ApplicationFormSuccess = () => {
   return (
-    <div>
+    <Container>
       <Section>
-        <h3>
-          {/* TODO: this page looks bad, just needed to test redirect */}
-          Your application has been received!
-        </h3>
+        <Icon name="check circle" size="massive" color="green" />
+        <h3>Your application has been received!</h3>
         <p>
           You will receive a confirmation email shortly with more details and
           next steps. Look forward to meeting you!
         </p>
         <Button.Group>
-          <Button>See Programs</Button>
-          <Button>View Blog</Button>
+          <Button as={Link} to="/program">
+            See Programs
+          </Button>
+          <Button as={Link} to="/blog">
+            View Blog
+          </Button>
         </Button.Group>
       </Section>
-    </div>
+    </Container>
   );
 };
 
-export default Home;
+export default ApplicationFormSuccess;
