@@ -51,10 +51,13 @@ class BlogpostViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many-ancest
         # TODO: not sure why this works
         queried_tag = self.request.query_params.get('tag_id', None)
         queried_tag_name = self.request.query_params.get('tag', None)
+        queried_topic_name = self.request.query_params.get('topic', None)
         if queried_tag is not None:
             result = result.filter(tag__id=queried_tag)
         if queried_tag_name is not None:
             result = result.filter(tag__name=queried_tag_name)
+        if queried_topic_name is not None:
+            result = result.filter(topic__name=queried_topic_name)
         return result
 
 
