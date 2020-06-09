@@ -16,7 +16,7 @@ const navLinks = [
   { text: 'Program', i18n_key: 'program', link: '/program' },
   { text: 'Mentors', i18n_key: 'mentors', link: '/mentors' },
   { text: 'Stories', i18n_key: 'stories', link: '/stories' },
-  { text: 'Blog', i18n_key: 'blog', link: '/blog' }
+  { text: 'Blog', i18n_key: 'blog', link: '/blog-list' }
   // { text: 'Mentors', link: '/mentors', mobileOnly: true },
   // { text: 'Contact Us', link: '/contact' }
 ];

@@ -1,38 +1,15 @@
+// import { filter, escapeRegExp, debounce } from 'lodash';
 import _ from 'lodash';
-import React, { Component } from 'react';
-import { Search } from 'semantic-ui-react';
+import React, { Component, useState, useEffect } from 'react';
 import BlogList from 'components/BlogList/BlogList';
+
 import FilterDropdown from 'components/FilterDropdown/FilterDropdown';
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import mixins from '../../styles/mixins';
 
-export const blogTestData = [
-  {
-    imageUrl: 'https://via.placeholder.com/200x150?text=first',
-    title: 'Transition to America',
-    subHeader: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    link: '/'
-  },
-  {
-    imageUrl: 'https://via.placeholder.com/200x150?text=second',
-    title: 'Adjusting to the U.S.',
-    subHeader: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Something something.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Something something.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Something something.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Something something',
-    link: '/'
-  },
-  {
-    imageUrl: 'https://via.placeholder.com/200x150?text=third',
-    title: 'Transition to America',
-    subHeader: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum pellentesque efficitur. Aliquam id lectus a libero egestas tristique vitae ac diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    link: '/'
-  }
-];
+import blogListData from './data';
 
 const SearchWrapper = styled.div`
   margin: 30px;
@@ -66,7 +43,8 @@ const FilterWrapper = styled.div`
 
 const initialState = { isLoading: false, results: [], value: '' };
 
-const filterOptions = [
+//
+const categoryFilterOptions = [
   {
     key: 'All',
     text: 'All',
@@ -74,7 +52,7 @@ const filterOptions = [
   }
 ];
 
-const sortOptions = [
+const resultSortOptions = [
   {
     key: 'Newest',
     text: 'Newest',
@@ -106,7 +84,6 @@ export default class BlogSearch extends Component {
 
   render() {
     const { isLoading, value, results } = this.state;
-    const { blogListData } = this.props;
 
     return (
       <div style={{ margin: '2em auto', maxWidth: '1060px' }}>
@@ -114,7 +91,7 @@ export default class BlogSearch extends Component {
           <i class="arrow left icon"></i>Blog Home
         </BackButton>
 
-        <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title>
+        {/* <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title>
 
         <SearchWrapper>
           <Search
@@ -138,7 +115,6 @@ export default class BlogSearch extends Component {
           />
 
           <FilterWrapper>
-            {/* TODO: Add function for filtering and sorting blog list */}
             <FilterDropdown
               options={filterOptions}
               label="Filter type"
@@ -146,11 +122,11 @@ export default class BlogSearch extends Component {
             />
             <FilterDropdown options={sortOptions} label="Sort by" />
           </FilterWrapper>
-        </SearchWrapper>
+        </SearchWrapper> */}
 
         {value && <Results>Results for ‘{value}’</Results>}
 
-        <BlogList data={value ? results : blogListData} />
+        <BlogList blogList={blogListData} />
       </div>
     );
   }

@@ -11,7 +11,7 @@ import Blogpost from '../pages/Blogs/Blogpost';
 import Terms from '../pages/Legal/Terms';
 import Privacy from '../pages/Legal/Privacy';
 import Leadership from '../pages/Leadership/Leadership';
-import BlogList from 'pages/Blogs/BlogListPage';
+import BlogList from 'pages/BlogSearchResults/BlogListPage';
 
 export const HOME = Home;
 export const EDIT_BLOG = EditBlog;

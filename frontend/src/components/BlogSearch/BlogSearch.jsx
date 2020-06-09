@@ -43,7 +43,7 @@ export default class BlogSearch extends Component {
       <div>
         <SearchWrapper>
           <Search
-            size="large"
+            size="medium"
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
