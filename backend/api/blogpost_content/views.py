@@ -62,6 +62,8 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
         queried_author = self.request.query_params.get('author', None)
         queried_blogpost = self.request.query_params.get('blogpost', None)
         queried_language = self.request.query_params.get('language', None)
+        queried_tag_name = self.request.query_params.get('tag', None)
+        queried_topic_name = self.request.query_params.get('topic', None)
         query_text = self.request.query_params.get('query', None)
         featured = self.request.query_params.get('featured', False)
         published_only = self.request.query_params.get('published', False)
@@ -78,6 +80,10 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
             result = result.filter(language=queried_language)
         if queried_blogpost is not None:
             result = result.filter(blogpost=queried_blogpost)
+        if queried_tag_name is not None:
+            result = result.filter(blogpost__tag__name=queried_tag_name)
+        if queried_topic_name is not None:
+            result = result.filter(blogpost__topic__name=queried_topic_name)
         if featured and featured.lower() == 'true':
             result = result.filter(blogpost__is_featured=True)
             result = result.filter(is_draft=False)
