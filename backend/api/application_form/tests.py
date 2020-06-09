@@ -1,4 +1,3 @@
-from datetime import datetime
 from rest_framework.test import APITestCase
 from rest_framework.views import status
 from api.application_form.models import ApplicationForm

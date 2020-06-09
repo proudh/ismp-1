@@ -1,3 +1,5 @@
+from datetime import date
+from hashlib import md5
 from django.conf import settings
 from django.db import models
 from django.core.validators import RegexValidator
@@ -58,18 +60,36 @@ Phone number must be entered in the format: '+999999999'. Up to 15 digits allowe
             # form a json object of the info mailchimp needs
             new_user_data = {
                 'email_address': self.email,
-                'status': 'subscribed',
+                'status_if_new': 'subscribed',
                 'merge_fields': {
-                    'FNAME': self.first_name,
-                    'LNAME': self.last_name
+                    'FNAME': self.first_name.title(),
+                    'LNAME': self.last_name.title(),
+                    'APPLY_D': str(date.today()),
+                    'PHONE': self.phone,
+                    # only include the month and day because by default on mailchimp the
+                    # BIRTHDAY merge field only includes a month and a day in format mm/dd.
+                    'BIRTHDAY': self.birth_date.strftime("%m/%d"),
+                    'SCHOOL': self.destination_school.lower(),
+                    'GRADE_LVL': self.grade_level
                 },
-                'tags': ['applied']
             }
             mailchimp_client = MailChimp(
                 settings.MAILCHIMP_API_KEY,
                 settings.MAILCHIMP_USERNAME)
-
+            utf8_email = self.email.lower().encode('utf-8')
+            email_hash = md5(utf8_email)
             # add the new user to the mailchimp list
-            mailchimp_client.lists.members.create(
+            mailchimp_client.lists.members.create_or_update(
                 settings.MAILCHIMP_LIST_ID,
+                email_hash.hexdigest(),  # subscriber_hash
                 new_user_data)
+
+            tags_to_add = ['applied', 'mentee']
+            # To add a tag, you have to send a dict with the 'name': TAG_NAME and also
+            # 'status':'active'. Good luck finding this in any documentation about mailchimp3.
+            tag_list = [{'name': tag_name, 'status': 'active'} for tag_name in tags_to_add]
+            mailchimp_client.lists.members.tags.update(
+                settings.MAILCHIMP_LIST_ID,
+                email_hash.hexdigest(),
+                {'tags': tag_list}
+            )
