@@ -6,6 +6,7 @@ import HeroImage from 'components/HeroImage/HeroImage';
 import theme from '../../styles/theme';
 import { Blogposts } from '../../utils/agent';
 import { useTranslation } from 'react-i18next';
+import { Embed } from 'semantic-ui-react';
 
 // TODO: Just testing things out
 const MentorContainer = Styled.div`
@@ -51,7 +52,7 @@ const ItalizedParagraph = Styled(StyledParagraph)`
 
 const VideoPlaceholder = Styled.div`
   background-color: black;
-  height: 287px;
+  width: 50%;
 `;
 
 const TitleContainer = Styled.div`
@@ -105,7 +106,13 @@ const Home = () => {
           <SubTitle>{t('who_section.title')}</SubTitle>
           <StyledParagraph>{t('who_section.blurb')}</StyledParagraph>
         </div>
-        <VideoPlaceholder />
+        <Embed
+          active={true}
+          icon="arrow circle down"
+          id="Pcmwvi212jE"
+          placeholder="/images/image-16by9.png"
+          source="youtube"
+        />
       </DuoContainer>
 
       <MentorContainer>
