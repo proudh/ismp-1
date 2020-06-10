@@ -14,7 +14,8 @@ import SocialMediaIconList from '../../components/SocialIconsList';
 const style = {
   footerContainer: {
     margin: '0',
-    padding: '3em 0em'
+    padding: '3em 0em',
+    width: '100%',
   }
 };
 
