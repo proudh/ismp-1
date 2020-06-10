@@ -60,74 +60,71 @@ const resultSortOptions = [
   }
 ];
 
-export default class BlogSearch extends Component {
-  state = initialState;
+const BlogSearch = ({ searchTerm }) => {
+  // handleResultSelect = (e, { result }) =>
+  //   this.setState({ value: result.title });
 
-  handleResultSelect = (e, { result }) =>
-    this.setState({ value: result.title });
+  // handleSearchChange = (e, { value }) => {
+  //   this.setState({ isLoading: true, value });
 
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value });
+  //   setTimeout(() => {
+  //     if (this.state.value.length < 1) return this.setState(initialState);
 
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.setState(initialState);
+  //     const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
+  //     const isMatch = result => re.test(result.title);
 
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.title);
+  //     this.setState({
+  //       isLoading: false,
+  //       results: _.filter(this.props.blogListData, isMatch)
+  //     });
+  //   }, 300);
+  // };
 
-      this.setState({
-        isLoading: false,
-        results: _.filter(this.props.blogListData, isMatch)
-      });
-    }, 300);
-  };
+  return (
+    <div style={{ margin: '2em auto', maxWidth: '1060px' }}>
+      <BackButton to="/blog">
+        <i className="arrow left icon"></i>Blog Home
+      </BackButton>
 
-  render() {
-    const { isLoading, value, results } = this.state;
+      {/* <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title> */}
 
-    return (
-      <div style={{ margin: '2em auto', maxWidth: '1060px' }}>
-        <BackButton to="/blog">
-          <i className="arrow left icon"></i>Blog Home
-        </BackButton>
+      {/* Add in Autocomplete */}
+      {/* <SearchWrapper>
+        <Search
+          size="small"
+          loading={isLoading}
+          onResultSelect={this.handleResultSelect}
+          onSearchChange={_.debounce(this.handleSearchChange, 500, {
+            leading: true
+          })}
+          value={value}
+          showNoResults={!isLoading && value && results.length === 0}
+          input={{
+            input: {
+              placeHolder: 'Search within topic',
+              tabIndex: 0,
+              autoComplete: 'off',
+              class: 'prompt'
+            }
+          }}
+          {...this.props}
+        />
 
-        {/* <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title>
-
-        <SearchWrapper>
-          <Search
-            size="small"
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true
-            })}
-            value={value}
-            showNoResults={!isLoading && value && results.length === 0}
-            input={{
-              input: {
-                placeHolder: 'Search within topic',
-                tabIndex: 0,
-                autoComplete: 'off',
-                class: 'prompt'
-              }
-            }}
-            {...this.props}
+        <FilterWrapper>
+          <FilterDropdown
+            options={filterOptions}
+            label="Filter type"
+            marginRight
           />
+          <FilterDropdown options={sortOptions} label="Sort by" />
+        </FilterWrapper>
+      </SearchWrapper> */}
 
-          <FilterWrapper>
-            <FilterDropdown
-              options={filterOptions}
-              label="Filter type"
-              marginRight
-            />
-            <FilterDropdown options={sortOptions} label="Sort by" />
-          </FilterWrapper>
-        </SearchWrapper> */}
+      {/* {value && <Results>Results for ‘{value}’</Results>} */}
 
-        {value && <Results>Results for ‘{value}’</Results>}
+      <BlogList blogList={blogListData} />
+    </div>
+  );
+};
 
-        <BlogList blogList={blogListData} />
-      </div>
-    );
-  }
-}
+export default BlogSearch;
