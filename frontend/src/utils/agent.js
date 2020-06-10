@@ -35,8 +35,9 @@ export const requests = {
 
 export const Blogposts = {
   getFeatured: () => {
-    return requests.get(`blogpostcontent/?featured='true'`).then((data) => {
-      return data.results
+    return requests.get(`blogpostcontent/?featured='true'`).then(data => {
+      console.log('data' + data);
+      return data.results;
     });
   }
 };

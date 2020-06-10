@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'ismpdb',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
