@@ -7,6 +7,8 @@ from mailchimp3 import MailChimp
 
 
 class ApplicationForm(models.Model):
+    """Represent an ISMP application"""
+
     class Meta:
         ordering = ['-id']
 
@@ -41,13 +43,8 @@ Phone number must be entered in the format: '+999999999'. Up to 15 digits allowe
     school_country = models.CharField(max_length=100)
     destination_school = models.CharField(max_length=100, blank=True)
     major = models.CharField(max_length=100)
-    # TODO: we chat??
+    # TODO: make other work on frontend
     referral = models.CharField(max_length=100)
-    #  choose 3 topics you're interested in, not required for now
-    topics_of_interest = models.CharField(max_length=300, blank=True)
-    #  what would you like to gain or learn from ISMP?
-    goals = models.CharField(max_length=100)
-    #  questions/comments
     additional_input = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -93,3 +90,17 @@ Phone number must be entered in the format: '+999999999'. Up to 15 digits allowe
                 email_hash.hexdigest(),
                 {'tags': tag_list}
             )
+class InterestTopic(models.Model):
+    """
+    This model tracks interest topics which can be entered through a checklist
+    Usage is create a new one for a new topic, use an existing one if it already exists
+    Currently we create a new one if someone enters a topic into the other field that does not exist
+    Otherwise if checklists are used or duplicate string is used, add existing topic to that application
+    """
+
+    topic = models.CharField(max_length=100, unique=True)
+    ApplicationForm = models.ManyToManyField(ApplicationForm, related_name="interest_topic")
+
+    def __str__(self):
+        """print topic"""
+        return "{}".format(self.topic)

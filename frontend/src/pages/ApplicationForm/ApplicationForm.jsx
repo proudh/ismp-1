@@ -6,7 +6,8 @@ import {
   Form,
   Select,
   Step,
-  Container
+  Container,
+  Checkbox
 } from 'semantic-ui-react';
 
 import { DateInput } from 'semantic-ui-calendar-react'
@@ -19,10 +20,11 @@ import {
   gradeLevelOptions,
   referralOptions
 } from './ApplicationOptions';
+import { topicsOptions } from './ApplicationOptions';
 
 // change to true to prefill the form with valid inputs and debug easier
 // THIS SHOULD BE FALSE WHEN MERGING CODE
-const DEBUG = false;
+const DEBUG = true;
 
 const DEBUG_FORM_STATE = {
   first_name: 'Debug',
@@ -41,7 +43,6 @@ const DEBUG_FORM_STATE = {
   destination_school: 'UCSD',
   major: 'Computer Science',
   referral: 'friend',
-  goals: 'to be mentored by a mentor',
   additional_input: 'when can I get mentored?'
 }
 
@@ -94,6 +95,19 @@ const useApplicationFormFeedback = callback => {
 
 const ApplicationForm = props => {
   const signup = () => {
+    inputs['topics_of_interest'] = [];
+    topicsOptions.map(option => option.value).forEach(topic => {
+      if (inputs[topic]) {
+        inputs['topics_of_interest'].push(topic);
+        inputs[topic] = undefined;
+      }
+    });
+
+    if (inputs['other_topic']) {
+      inputs['topics_of_interest'].push(inputs['other_topic']);
+      inputs['other_topic'] = undefined;
+    }
+
     return requests.post('application/', inputs).then(
       response => {
         alert('Successfully Posted');
@@ -103,11 +117,12 @@ const ApplicationForm = props => {
       },
       error => {
         // TODO: need to display feedbacks, not sure the best way to do this
-        console.log(error.response.body);
+        console.log(error);
         return false;
       }
     );
   };
+
   const { inputs, handleInputChange } = useApplicationForm(
     signup
   );
@@ -164,8 +179,8 @@ const ApplicationForm = props => {
     birth_date: [validations.validateNotBlank],
     gender: [validations.validateNotBlank],
     country_of_origin: [validations.validateNotBlank],
-    email: [validations.validateNotBlank, validations.validateEmail], // TODO: validate email format
-    phone: [validations.validateNotBlank, validations.validatePhone], // TODO: validate phone format
+    email: [validations.validateNotBlank, validations.validateEmail],
+    phone: [validations.validateNotBlank, validations.validatePhone],
     grade_level: [validations.validateNotBlank],
     school_name: [validations.validateNotBlank],
     school_city: [validations.validateNotBlank],
@@ -173,7 +188,6 @@ const ApplicationForm = props => {
     school_country: [validations.validateNotBlank],
     major: [validations.validateNotBlank],
     referral: [validations.validateNotBlank],
-    goals: [validations.validateNotBlank],
     additional_comments: []
   };
 
@@ -218,7 +232,10 @@ const ApplicationForm = props => {
         'major'
       ];
     } else if (step === 3) {
-      fields = ['referral', 'goals', 'additional_comments'];
+      fields = [
+        'referral', 
+        'additional_comments'
+      ];
     }
 
     let valid = true;
@@ -570,13 +587,39 @@ const ApplicationForm = props => {
                 );
               })}
             </Form.Group> */}
-              <Form.TextArea
+              {/* <Form.TextArea
                 label="What would you like to gain or learn from ISMP?"
                 placeholder="What would you like to gain or learn from ISMP?"
                 name="goals"
                 type="text"
                 onChange={handleInputChange}
                 value={inputs.goals}
+              /> */}
+              <Form.Group grouped>
+                <label>Choose topics interested in:</label>
+                {topicsOptions.map((topic) => {
+                  return (
+                    <Form.Field
+                      label={topic.text}
+                      value={topic.value}
+                      key={topic.key}
+                      control={Checkbox}
+                      name={topic.value}
+                      onChange={handleInputChange}
+                      type="checkbox"
+                    />
+                  )
+                })}
+              </Form.Group>
+              <Form.Field
+                id="form-input-control-other-topic"
+                control={Input}
+                label="Other Topic"
+                placeholder="Other Topic"
+                name="other_topic"
+                type="text"
+                onChange={handleInputChange}
+                value={inputs.other_topic}
               />
               <Form.TextArea
                 label="Questions / Comments"
