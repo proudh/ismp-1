@@ -403,6 +403,21 @@ Sample Response:
     "profile_picture_url": "https://www.ocregister.com/wp-content/uploads/2020/03/uci-1.jpg",
     "page_description": "This is the page about UCI. I think it will be up to the content team to actually write a descriptive block of text about UCI. Also, I didn't check for copyrights on the image."
     }
+## localhost:8000/api/v1/mentor/
+<ins>description</ins>: Get a list of the mentors. Right now we can theoretically create mentors with a POST request, but there's nowhere in the UI to do that, so I'm not going to document that yet.
+
+<ins>Allowed Request</ins>
+
+GET
+
+<ins>Parameters</ins>
+
+* school: add ?school=<school name> to filter to the mentorw who mentor at the school specified by the name.
+* school_id: add ?school=<school name> to filter results to the mentors who mentor at the school specified by id.
+* school_directed: add ?school_directed=<school name> to get the director of a school
+* school_directed_id: add ?school_directed_id=<school id> to get the director of the school with id school id.
+
+POST
 ## localhost:8000/api/v1/blogpost/
 For the most part, we tried to make it so you would never have to call this endpoint, instead calling the blogpostcontent endpoint. Most information can be gained by calling that instead. This models exists so that in the future we can support having translations of blogposts.
 

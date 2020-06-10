@@ -31,5 +31,17 @@ class MentorViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         result = Mentor.objects.all()
+        queried_school_mentored = self.request.query_params.get('school', None)
+        queried_school_mentored_id = self.request.query_params.get('school_id', None)
+        queried_school_directed = self.request.query_params.get('school_directed', None)
+        queried_school_directed_id = self.request.query_params.get('school_directed_id', None)
+        if queried_school_mentored is not None:
+            result = result.filter(schools_mentored__name=queried_school_mentored)
+        if queried_school_mentored_id is not None:
+            result = result.filter(schools_mentored__id=queried_school_mentored_id)
+        if queried_school_directed is not None:
+            result = result.filter(schools_directed__name=queried_school_directed)
+        if queried_school_directed_id is not None:
+            result = result.filter(schools_directed__id=queried_school_directed_id)
 
         return result

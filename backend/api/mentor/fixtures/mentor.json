@@ -1,16 +1,93 @@
-[{
+[
+    {
     "model": "mentor.mentor",
     "pk": 1,
     "fields": {
         "picture_url": "https://www.gravatar.com/avatar/e4cc5f9c430e04adaff1e59f8f4d3f9c.jpg",
-        "user_id": 1
-    }
-},
-{
+        "degrees": "[\"PhD Computer Science from UCSD\", \"B.S. Computer Science from UCLA\"]",
+        "fun_facts": "[\"Writes books\", \"Speaks Spanish\"]",
+        "job_title": "Program Manager",
+        "company_name": "ESPN",
+        "contact_email": "ucsddirector@internationalmentorship.org",
+        "display_name": "Dr. UCSD Director PhD"
+        }
+    },
+    {
     "model": "mentor.mentor",
     "pk": 2,
     "fields": {
         "picture_url": "https://www.gravatar.com/avatar/e4cc5f9c430e04adaff1e59f8f4d3f9d.jpg",
-        "user_id": 2
+        "degrees": "[\"M.S. Biology from UCSD\", \"B.S. Biology from UCSD\"]",
+        "fun_facts": "[\"This is a fun fact\", \"So is this\", \"So is this\"]",
+        "job_title": "Pharmacist",
+        "company_name": "CVS",
+        "contact_email": "ucsdmentor@internationalmentorship.org",
+        "display_name": "UCSD C. Mentorname"
+        }
+    },
+    {
+    "model": "mentor.mentor",
+    "pk": 3,
+    "fields": {
+        "picture_url": "'https://semantic-ui.com/images/avatar2/large/matthew.png'",
+        "degrees": "[\"degree1\", \"degree2\"]",
+        "fun_facts": "[\"fact1\", \"fact2\"]",
+        "job_title": "engineer",
+        "company_name": "company",
+        "contact_email": "a@b.com",
+        "display_name": "Bobby Tables"
+        }
+    },
+    {
+    "model": "mentor.mentor",
+    "pk": 4,
+    "fields": {
+        "picture_url": "'https://semantic-ui.com/images/avatar2/large/matthew.png'",
+        "degrees": "[\"Test Degree from UCI\"]",
+        "fun_facts": "[\"This is a fun fact\"]",
+        "job_title": "Test Engineer",
+        "company_name": "The Irvine Company",
+        "contact_email": "ucidirectoremail@domainname.com",
+        "display_name": "UCI Directorname"
+        }
+    },
+    {
+    "model": "mentor.mentor",
+    "pk": 5,
+    "fields": {
+        "picture_url": "'https://semantic-ui.com/images/avatar2/large/matthew.png'",
+        "degrees": "[\"JD Law from UCI\", \"B.S. Political Science from Beijing University\"]",
+        "fun_facts": "[\"This is a fun fact\"]",
+        "job_title": "Lawyer",
+        "company_name": "The Law Firm of Johnson, Johnson, Johnson, and Johnson",
+        "contact_email": "ucimentoremail@domainname.com",
+        "display_name": "UCI Mentorname"
+        }
+    },
+    {
+    "model": "mentor.mentor",
+    "pk": 6,
+    "fields": {
+        "picture_url": "'https://semantic-ui.com/images/avatar2/large/matthew.png'",
+        "degrees": "[\"B.S. Art from UCLA\"]",
+        "fun_facts": "[\"Likes walking\", \"Can do a hand stand\", \"Once ate a whole costco pizza\"]",
+        "job_title": "Blacksmith",
+        "company_name": "LAPD",
+        "contact_email": "ucladirectoremail@domainname.com",
+        "display_name": "UCLA Directorname II"
+        }
+    },
+    {
+    "model": "mentor.mentor",
+    "pk": 7,
+    "fields": {
+        "picture_url": "'https://semantic-ui.com/images/avatar2/large/matthew.png'",
+        "degrees": "[\"B.S. Chemical Engineering from Harvard\"]",
+        "fun_facts": "[\"This is a fun fact\"]",
+        "job_title": "Gardener",
+        "company_name": "LA Colisuem",
+        "contact_email": "uclamentoremail@domainname.com",
+        "display_name": "UCLA Mentorname"
+        }
     }
-}]
+]

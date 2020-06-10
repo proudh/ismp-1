@@ -5,4 +5,12 @@ from api.mentor.models import Mentor
 class MentorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mentor
-        fields = ("id", "picture_url", "user_id")
+        fields = (
+            'id',
+            'display_name',
+            'contact_email',
+            'degrees',
+            'fun_facts',
+            'schools_mentored',
+            'schools_directed'
+        )
