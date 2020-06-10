@@ -178,9 +178,17 @@ GET - gets the existing blogpostcontents. For populating pages.
 
 * Author: since a blogpostcontent is associated with only one blogpost, filter by the id of the author of the blogpost. This is just for convenience since author is technically a field in blogpost.
 
-* Topic: For convenience, you can pass in the name of a topic and receive only blogpostcontent records where the associated blogpost has the topic you pass in.
+* Topic: For convenience, you can pass in the name of a topic (?topic=<topic name>) and receive only blogpostcontent records where the associated blogpost has the topic you pass in.
 
-* Tag: For convenience, you can pass in the name of a tag and receive only blogpostcontent records where the associated blogpost has the tag you pass in.
+* Tag: For convenience, you can pass in the name of a tag (?tag=<tag name>) and receive only blogpostcontent records where the associated blogpost has the tag you pass in.
+
+* Ordering: use ?ordering=<ordering type> to change the order you receive the results in. Possible values are:
+  * id: sort by id ascending
+  * -id: sort by id descending
+  * publish_at: sort by publish_at field, oldest to newest.
+  * -pubish_at: sort by publish_at field, newest to oldest.
+
+<strong>Don't forget to combine these with ?published=true when showing published blogposts.</strong>
 
 POST - creates a new blogpostcontent. Use this when creating a post for the first time.
 

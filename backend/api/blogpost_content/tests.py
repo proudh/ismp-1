@@ -50,8 +50,8 @@ class GetAllBlogpostContentsTest(BaseViewTest):
 
     def test_get_all_blogpost_contents(self):
         """
-        This test ensures that all songs added in the setUp method
-        exist when we make a GET request to the songs/ endpoint
+        This test ensures that all blogpostcontents added in the setUp method
+        exist when we make a GET request to the blogpostcontent/ endpoint
         """
         # hit the API endpoint
         response = self.client.get(

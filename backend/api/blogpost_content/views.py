@@ -3,7 +3,7 @@ These views pertain to BlogpostContent.
 """
 from datetime import datetime
 from django.contrib.postgres.search import SearchVector
-from rest_framework import generics, viewsets, status
+from rest_framework import filters, generics, viewsets, status
 from rest_framework.response import Response
 from .models import BlogpostContent
 from .serializers import BlogpostContentSerializer
@@ -50,6 +50,9 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
     """
     queryset = BlogpostContent.objects.all()
     serializer_class = BlogpostContentSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['publish_at', 'id', 'title_content']
+    ordering = ['-id']
 
     def get_queryset(self):
         """
