@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../styles/theme';
 
 export const Card = styled.div`
@@ -11,29 +11,50 @@ export const BlogPreview = styled.div`
 
 export const PreviewCont = styled.div`
   width: 360px;
+  position: relative;
+  border: 1px solid grey;
 `;
+
+export const WebinarOnly = styled.div`
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 25px); // With icon width 50px
+  transform: translate(-50%, -50%);
+  z-index: 10;
+`;
+
+export const blurImage = css`
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+`;
+
+const getWebinarStyling = props => {
+  return props.blur ? blurImage : null;
+};
 
 export const PreviewImg = styled.img`
   width: 100%;
-  border: 1px solid grey;
   padding: 2px;
+
+  ${getWebinarStyling}
 `;
 
 export const PreviewDescription = styled.div`
   width: 60%;
-  padding: 5px 15px 5px 10px;
+  padding: 5px 15px 5px 20px;
 `;
 
-export const Category = styled.h4`
-  font-size: ${theme.fontSizes.sm};
+export const Category = styled.p`
+  font-size: ${theme.fontSizes.xs};
   font-style: italic;
 `;
 
 export const Title = styled.h3`
   font-size: ${theme.fontSizes.md};
+  margin-top: 5px;
 `;
 
 export const Blurb = styled.div`
-  font-size: ${theme.fontSizes.sm};
+  font-size: ${theme.fontSizes.p};
   margin-top: 10px;
 `;

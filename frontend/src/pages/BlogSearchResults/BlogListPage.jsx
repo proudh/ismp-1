@@ -88,7 +88,7 @@ export default class BlogSearch extends Component {
     return (
       <div style={{ margin: '2em auto', maxWidth: '1060px' }}>
         <BackButton to="/blog">
-          <i class="arrow left icon"></i>Blog Home
+          <i className="arrow left icon"></i>Blog Home
         </BackButton>
 
         {/* <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title>

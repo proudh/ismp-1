@@ -4,32 +4,6 @@ const blogSearchDataDjango = {
   previous: null,
   results: [
     {
-      id: 4,
-      blogpost: {
-        id: 4,
-        media_url: 'https://www.youtube.com/watch?v=8G89StDuGe4',
-        author: {
-          id: 1,
-          created_at: '2020-06-08T23:15:11.516027Z',
-          updated_at: '2020-06-08T23:15:11.516045Z',
-          bio: '',
-          image: '',
-          user: 1
-        },
-        slug: '',
-        is_featured: false,
-        topic_set: [],
-        tag_set: []
-      },
-      title_content: 'english training',
-      body_content: '<p>talk to people</p>',
-      language: 'en',
-      is_draft: false,
-      created_at: '2020-05-07T00:00:00Z',
-      updated_at: '2020-05-07T00:00:00Z',
-      publish_at: '2020-06-02T18:04:44.296110Z'
-    },
-    {
       id: 3,
       blogpost: {
         id: 3,
