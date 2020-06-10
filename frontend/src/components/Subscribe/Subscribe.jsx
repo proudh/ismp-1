@@ -8,7 +8,7 @@ const Container = styled.div`
   /* grid-column: 1 / 15; */
   width: 100%;
   padding: 40px;
-  background-color: ${theme.colors.darkGrey};
+  background-color: ${theme.colors.blue};
   text-align: center;
   display: grid;
   justify-items: center;
@@ -19,22 +19,29 @@ const Title = styled.h3`
   font-style: normal;
   font-weight: bold;
   font-size: ${theme.fontSizes.h3};
+  color: ${theme.colors.white};
   margin-bottom: 24px;
 `;
 
-const SearchContainer = styled.div`
+const StyledInput = styled(Input)`
   width: 40%;
   min-width: 450px;
+  height: 40px;
+  /* box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.1); */
+  font-family: ${theme.fonts.Poppins};
+  font-style: normal;
+  font-weight: normal;
+  font-size: ${theme.fontSizes.xs};
 `;
 
 const SearchButton = styled(Button)`
   &&& {
     font-family: ${theme.fonts.Poppins};
     font-style: normal;
-    font-weight: bold;
-    font-size: ${theme.fontSizes.sm};
-    color: white;
-    background: ${theme.colors.purple};
+    font-weight: normal;
+    font-size: ${theme.fontSizes.xs};
+    color: ${theme.colors.black};
+    background: ${theme.colors.yellow};
   }
 `;
 
@@ -70,22 +77,25 @@ const Subscribe = () => {
   return (
     <Container>
       <Title>Subscribe to our monthly newsletter</Title>
-      <SearchContainer>
-        <Input
-          fluid
-          placeholder="Email Address"
-          type="email"
-          onChange={handleChange}
-          action
-        >
-          <input onKeyPress={submitOnEnter} />
+      {/* <SearchContainer> */}
+      <StyledInput
+        fluid
+        placeholder="Email Address"
+        type="email"
+        onChange={handleChange}
+        action
+        label={
           <SearchButton
             type="submit"
             onClick={handleSubmit}
             content="Subscribe"
           />
-        </Input>
-      </SearchContainer>
+        }
+        labelPosition="right"
+      />
+      {/* <input onKeyPress={submitOnEnter} /> */}
+      {/* </StyledInput> */}
+      {/* </SearchContainer> */}
     </Container>
   );
 };

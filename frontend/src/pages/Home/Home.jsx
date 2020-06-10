@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Styled from 'styled-components';
 import Subscribe from 'components/Subscribe';
+import WebinarHighlight from 'components/WebinarHighlight';
 import { Link, useParams } from 'react-router-dom';
 import HeroImage from 'components/HeroImage/HeroImage';
 import theme from '../../styles/theme';
@@ -44,15 +45,6 @@ const StyledParagraph = Styled.p`
   font-weight: normal;
   font-size: ${theme.fontSizes.sm};
   line-height: 2rem;
-`;
-
-const ItalizedParagraph = Styled(StyledParagraph)`
-  font-style: italic;
-`;
-
-const VideoPlaceholder = Styled.div`
-  background-color: black;
-  width: 50%;
 `;
 
 const TitleContainer = Styled.div`
@@ -107,6 +99,7 @@ const Home = () => {
           <StyledParagraph>{t('who_section.blurb')}</StyledParagraph>
         </div>
         <Embed
+          autoplay={false}
           active={true}
           icon="arrow circle down"
           id="Pcmwvi212jE"
@@ -117,7 +110,7 @@ const Home = () => {
 
       <MentorContainer>
         <MentorTitle>{t('mentor_section.title')}</MentorTitle>
-        <ItalizedParagraph>{t('mentor_section.blurb')}</ItalizedParagraph>
+        <StyledParagraph>{t('mentor_section.blurb')}</StyledParagraph>
       </MentorContainer>
 
       <DuoContainer>
@@ -125,13 +118,25 @@ const Home = () => {
           <SubTitle>{t('diff_section.title')}</SubTitle>
           <StyledParagraph>{t('diff_section.blurb')}</StyledParagraph>
         </div>
-        <VideoPlaceholder />
+        <Embed
+          autoplay={false}
+          active={true}
+          icon="arrow circle down"
+          id="Pcmwvi212jE"
+          placeholder="/images/image-16by9.png"
+          source="youtube"
+        />
       </DuoContainer>
 
       <TitleContainer>
         <SubTitle>Webinar Highlights</SubTitle>
         <StyledLink to="/">view all</StyledLink>
       </TitleContainer>
+
+      <DuoContainer style={{ marginTop: 0 }}>
+        <WebinarHighlight id="Pcmwvi212jE" title="test 1" blog="" />
+        <WebinarHighlight id="Pcmwvi212jE" title="test 2" blog="" />
+      </DuoContainer>
 
       <TitleContainer>
         <SubTitle>Featured Blog Articles</SubTitle>
