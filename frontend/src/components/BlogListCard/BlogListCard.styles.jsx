@@ -23,13 +23,13 @@ export const WebinarOnly = styled.div`
   z-index: 10;
 `;
 
-export const blurImage = css`
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
+export const grayScaleImage = css`
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 `;
 
 const getWebinarStyling = props => {
-  return props.blur ? blurImage : null;
+  return props.gray ? grayScaleImage : null;
 };
 
 export const PreviewImg = styled.img`

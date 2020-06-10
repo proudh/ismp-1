@@ -1,129 +1,139 @@
-// import { filter, escapeRegExp, debounce } from 'lodash';
-import _ from 'lodash';
-import React, { Component, useState, useEffect } from 'react';
-import BlogList from 'components/BlogList/BlogList';
+import React, { useState, useEffect } from 'react';
+import BlogList from '../../components/BlogList/BlogList';
+import Spinner from '../../components/Spinner/Spinner.component';
 
-import FilterDropdown from 'components/FilterDropdown/FilterDropdown';
-
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import mixins from '../../styles/mixins';
-
+import { Input, Form, Select, Container } from 'semantic-ui-react';
 import blogListData from './data';
 
-const SearchWrapper = styled.div`
-  margin: 30px;
-  display: flex;
-  justify-content: space-between;
-`;
+import { requests } from '../../utils/agent';
 
-const Results = styled.div`
-  margin: 8px 30px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-`;
+import {
+  SearchWrapper,
+  SearchFieldWrapper,
+  Header,
+  BackButton,
+  FilterWrapper
+} from './BlogListPage.styles';
 
-const Title = styled.h2`
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 60px;
-`;
+import { topicFilterOptions } from './BlogListPageOptions';
 
-const BackButton = styled(Link)`
-  margin: 30px 0 0 30px;
-  width: fit-content;
-  ${mixins.link}
-`;
+const BlogSearch = ({ term }) => {
+  const defaultInputState = {
+    searchTerm: term ? term : '',
+    topics: 'all'
+  };
 
-const FilterWrapper = styled.div`
-  display: flex;
-`;
+  // THIS SHOULD BE FALSE WHEN MERGING CODE
+  const DEBUG = true;
 
-const initialState = { isLoading: false, results: [], value: '' };
+  const [searchInputs, setSearchInputs] = useState(defaultInputState);
 
-//
-const categoryFilterOptions = [
-  {
-    key: 'All',
-    text: 'All',
-    value: 'All'
-  }
-];
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
-const resultSortOptions = [
-  {
-    key: 'Newest',
-    text: 'Newest',
-    value: 'Newest'
-  }
-];
+  // Component Did Mount
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setSearchResults(blogListData);
+      setIsLoading(false);
+    }, 5000);
+  }, [DEBUG]);
 
-const BlogSearch = ({ searchTerm }) => {
-  // handleResultSelect = (e, { result }) =>
-  //   this.setState({ value: result.title });
+  // Search Input
+  const handleInputChange = (e, data) => {
+    setSearchInputs(searchInputs => ({
+      ...searchInputs,
+      [data.name]: data.value
+    }));
+  };
 
-  // handleSearchChange = (e, { value }) => {
-  //   this.setState({ isLoading: true, value });
+  const handleSubmit = e => {
+    if (e.key === 'Enter') {
+      console.log('handle submit', e, searchInputs);
+      fetchResultResponse().then(result => {
+        if (result) {
+          console.log(result);
+        }
+      });
+    }
+  };
 
-  //   setTimeout(() => {
-  //     if (this.state.value.length < 1) return this.setState(initialState);
+  // TODO: Fetch up Request, Reduce the response - SANITIZE
+  const fetchResultResponse = () => {
+    const queryParamSearch =
+      searchInputs.searchTerm.length > 0
+        ? `query='${searchInputs.searchTerm}'`
+        : '';
 
-  //     const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-  //     const isMatch = result => re.test(result.title);
+    console.log(searchInputs);
+    const queryParamTopic =
+      searchInputs.topics !== 'all'
+        ? `topic_name='${searchInputs.topics}'`
+        : '';
 
-  //     this.setState({
-  //       isLoading: false,
-  //       results: _.filter(this.props.blogListData, isMatch)
-  //     });
-  //   }, 300);
-  // };
+    const fetchApiUrl =
+      queryParamSearch || queryParamTopic
+        ? `blogpostcontent/?${queryParamSearch}&${queryParamTopic}`
+        : 'blogpostcontent';
+
+    console.log(fetchApiUrl);
+
+    return requests.get(fetchApiUrl).then(
+      response => {
+        console.log(response);
+        return true;
+      },
+      error => {
+        console.log(error.response.body);
+        return false;
+      }
+    );
+  };
 
   return (
-    <div style={{ margin: '2em auto', maxWidth: '1060px' }}>
+    <Container>
       <BackButton to="/blog">
         <i className="arrow left icon"></i>Blog Home
       </BackButton>
 
-      {/* <Title>{value ? 'Search Results' : 'All Blog Posts'}</Title> */}
+      <Header>
+        <h2>Blog Article Search Results</h2>
+      </Header>
+      <Form size="large">
+        <SearchWrapper>
+          {/* TODO IN FUTURE: Add in Autocomplete */}
+          <SearchFieldWrapper>
+            <Form.Field
+              id="form-input-control-search-term"
+              control={Input}
+              placeholder="Search..."
+              label="Search"
+              name="searchTerm"
+              icon="search"
+              onKeyPress={handleSubmit}
+              type="text"
+              onChange={handleInputChange}
+              value={searchInputs.searchTerm}
+            />
+          </SearchFieldWrapper>
 
-      {/* Add in Autocomplete */}
-      {/* <SearchWrapper>
-        <Search
-          size="small"
-          loading={isLoading}
-          onResultSelect={this.handleResultSelect}
-          onSearchChange={_.debounce(this.handleSearchChange, 500, {
-            leading: true
-          })}
-          value={value}
-          showNoResults={!isLoading && value && results.length === 0}
-          input={{
-            input: {
-              placeHolder: 'Search within topic',
-              tabIndex: 0,
-              autoComplete: 'off',
-              class: 'prompt'
-            }
-          }}
-          {...this.props}
-        />
+          <FilterWrapper>
+            <Form.Field
+              control={Select}
+              options={topicFilterOptions}
+              label="Topics"
+              placeholder="Topics"
+              name="topics"
+              onChange={handleInputChange}
+              value={searchInputs.topics}
+            />
+          </FilterWrapper>
+        </SearchWrapper>
+      </Form>
 
-        <FilterWrapper>
-          <FilterDropdown
-            options={filterOptions}
-            label="Filter type"
-            marginRight
-          />
-          <FilterDropdown options={sortOptions} label="Sort by" />
-        </FilterWrapper>
-      </SearchWrapper> */}
-
-      {/* {value && <Results>Results for ‘{value}’</Results>} */}
-
-      <BlogList blogList={blogListData} />
-    </div>
+      {isLoading ? <Spinner /> : <BlogList blogList={searchResults} />}
+    </Container>
   );
 };
 

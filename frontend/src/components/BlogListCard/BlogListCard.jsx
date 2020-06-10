@@ -56,7 +56,7 @@ const BlogListCard = ({ blogCard }) => {
           <PreviewImg
             src={image_url}
             alt={title}
-            blur={blog_type === 'webinar'}
+            gray={blog_type === 'webinar'}
           />
         </PreviewCont>
         <PreviewDescription>

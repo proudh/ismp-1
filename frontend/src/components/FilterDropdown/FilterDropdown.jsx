@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Dropdown } from 'semantic-ui-react';
 
+// QUESTION: Do we need this? We can use semantic select dropdown
+// https://react.semantic-ui.com/addons/select/
+// Should also use theme.css
 const StyledDropdown = styled(Dropdown)`
   &&& {
     min-width: 150px;
