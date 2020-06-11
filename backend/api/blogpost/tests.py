@@ -57,7 +57,7 @@ class GetBlogpostsByTagTest(APITestCase):
                                              password="password")
         self.profile = self.user.profile
 
-        self.blogpost_1 = Blogpost.objects.create(author=self.profile)
+        self.blogpost_1 = Blogpost.objects.create(author=self.profile, type='webinar')
         self.blogpost_2 = Blogpost.objects.create(author=self.profile)
         self.blogpost_3 = Blogpost.objects.create(author=self.profile)
 
