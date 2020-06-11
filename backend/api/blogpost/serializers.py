@@ -9,7 +9,7 @@ class BlogpostSerializer(serializers.ModelSerializer):
             'id',
             'media_url',
             'author',
-            'slug',
+            'type',
             'is_featured',
             'topic_set',
             'tag_set'
