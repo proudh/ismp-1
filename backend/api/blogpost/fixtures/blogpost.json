@@ -5,6 +5,7 @@
     "fields": {
       "media_url": "https://www.youtube.com/watch?v=9fJEFi3ccwI",
       "author_id": 1,
+      "type": "blogpost",
       "is_featured": true
     }
   },
@@ -14,6 +15,7 @@
     "fields": {
       "media_url": "https://wallpaperplay.com/walls/full/a/5/8/199352.jpg",
       "author_id": 2,
+      "type": "blogpost",
       "is_featured": false
     }
   },
@@ -22,6 +24,7 @@
     "pk": 3,
     "fields": {
       "media_url": "https://www.youtube.com/watch?v=8G89StDuGe4",
+      "type": "webinar",
       "author_id": 1
     }
   },
@@ -40,6 +43,7 @@
     "fields": {
       "media_url": "https://www.youtube.com/watch?v=wfF0zHeU3Zs",
       "author_id": 1,
+      "type": "webinar",
       "is_featured": true
     }
   },
@@ -49,6 +53,7 @@
     "fields": {
       "media_url": "https://lh3.googleusercontent.com/xB2rr3yMCib-qxHLsAclgXuIqcb-AFpMTJtIFuf2p6261B5DDX8Tv-BPfdc0o3IueV3pEhjsjpexa4v0tJAtWKdj1VEeb-txXOoEZuJXtLlJz9pR8rmZYG63AfTs6ofGu3-lgGdMiXwyQ3-Oq4NGBY6Cx3_MDKKjBp6sFzhkKY6b5EepNGN7sqao1UlgbwZcxURqb9EQeyWSWlmlYr61nygaxEnfTUT4jvx06TB-K5u6EkXtlUfVA-oOpxFCAxOFGE_z5DZg5fjzTtRl3unm3S2S4oiEOe8xLdDJwahvR-5qrge4PRCYqCmUjQ1S4IG5-mjnw-IJ8yDtaaym2kYuZ-mn3pRjM-GYegz_BnECFXsKIHsbAsvalOdUEYtVGcwwSfm7JZu6Unafhvrm_LIYvEmPDyqljZbFGqHlUFIEwoAbKg_xGPpxOKaLfgRctdisCD9wSblceGB28rM6OLtGwyx_FFXe3Wj0L1zq8lTI82hFkBT2_47upC3vliJ4TyhsWME77OFMPTYyKx83QUV_cc_avMtSX6X5f2f6T8gARXKEWmNdFteP2XSkC3z7myiTc-80klg-Zl1jm6oGPkWWlcLBMUgD0PfqkM7_edmXKd4_v4S6TaSmsEd-MQYGZ0J3RJ7YGKLPi7hOM_SRRcT-BHz_80qMuXqE7KPlsG1UK2EQRze-4kI10N3e2D83Gw=w1210-h908-no?authuser=0",
       "author_id": 2,
+      "type": "blogpost",
       "is_featured": true
     }
   },
@@ -58,6 +63,7 @@
     "fields": {
       "media_url": "https://www.youtube.com/watch?v=hqIbEHNqbPs",
       "author_id": 1,
+      "type": "blogpost",
       "is_featured": false
     }
   }
