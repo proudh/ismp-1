@@ -7,6 +7,9 @@ from mailchimp3 import MailChimp
 
 
 class ApplicationForm(models.Model):
+    """
+    This model contains the information that people input when they apply.
+    """
     class Meta:
         ordering = ['-id']
 
@@ -70,6 +73,7 @@ Phone number must be entered in the format: '+999999999'. Up to 15 digits allowe
                     # BIRTHDAY merge field only includes a month and a day in format mm/dd.
                     'BIRTHDAY': self.birth_date.strftime("%m/%d"),
                     'SCHOOL': self.destination_school.lower(),
+                    'COUNTY': self.school_state.lower(),
                     'GRADE_LVL': self.grade_level
                 },
             }

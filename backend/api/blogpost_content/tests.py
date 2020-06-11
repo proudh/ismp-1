@@ -12,8 +12,12 @@ class BaseViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_blogpost(media_url="", author=None, is_featured=False):
-        Blogpost.objects.create(media_url=media_url, author=author, is_featured=is_featured)
+    def create_blogpost(media_url="", author=None, is_featured=False, type='blogpost'):
+        Blogpost.objects.create(
+            media_url=media_url,
+            author=author,
+            is_featured=is_featured,
+            type=type)
 
     @staticmethod
     def create_blogpost_content(
@@ -50,8 +54,8 @@ class GetAllBlogpostContentsTest(BaseViewTest):
 
     def test_get_all_blogpost_contents(self):
         """
-        This test ensures that all songs added in the setUp method
-        exist when we make a GET request to the songs/ endpoint
+        This test ensures that all blogpostcontents added in the setUp method
+        exist when we make a GET request to the blogpostcontent/ endpoint
         """
         # hit the API endpoint
         response = self.client.get(
@@ -76,7 +80,11 @@ class GetByQueryParamTest(BaseViewTest):
                                               password="password2")
         self.profile = self.user.profile
         self.profile2 = self.user2.profile
-        self.create_blogpost(media_url="youtube.com", author=self.profile, is_featured=False)
+        self.create_blogpost(
+            media_url="youtube.com",
+            author=self.profile,
+            is_featured=False,
+            type='webinar')
         self.create_blogpost(media_url="google.com", author=self.profile2, is_featured=True)
         valid_blogpost = Blogpost.objects.get(author=self.profile)
         valid_blogpost2 = Blogpost.objects.get(author=self.profile2)
@@ -134,4 +142,12 @@ class GetByQueryParamTest(BaseViewTest):
         """
         response = self.client.get(
             self.BLOGPOSTCONTENT_URL, {"author": self.profile2.id}, format='json')
+        self.assertEqual(len(response.data['results']), 1)
+
+    def test_webinar_only(self):
+        """
+        Tests getting only blogpostcontents that correspont to webinar-type blogposts.
+        :return: nothing
+        """
+        response = self.client.get(self.BLOGPOSTCONTENT_URL, {'type': 'webinar'}, format='json')
         self.assertEqual(len(response.data['results']), 1)

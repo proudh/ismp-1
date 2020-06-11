@@ -6,7 +6,7 @@ This is a set up so that we can easily create apps that use Django on the backen
 
 ## Setup
 1. Download [docker](https://docs.docker.com/compose/install/)
-
+2. run `cd backend; `pip3 install -r requirements.txt` to install all the dependencies in the backend
 ## Development
 1. Make your edits in `backend/` or `frontend/`
 1. `make dev`
@@ -50,5 +50,4 @@ If you want to be on a shell for one of the Docker services, you can do somethin
 `docker-compose run --rm frontend bash`
 
 ## Contributing
-* We will work with a fork-PR model.  Please fork this repo and make your local edits, then submit a PR to get the changes merged
-* Please try to write tests for your work.  Be sure to run `make test` to confirm that your contributions are functional
+* Please try to write tests for your work.  Be sure to run `make test` to confirm that your contributions are functional.

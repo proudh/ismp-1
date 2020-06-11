@@ -178,9 +178,21 @@ GET - gets the existing blogpostcontents. For populating pages.
 
 * Author: since a blogpostcontent is associated with only one blogpost, filter by the id of the author of the blogpost. This is just for convenience since author is technically a field in blogpost.
 
-* Topic: For convenience, you can pass in the name of a topic and receive only blogpostcontent records where the associated blogpost has the topic you pass in.
+* Topic: For convenience, you can pass in the name of a topic (?topic=<topic name>) and receive only blogpostcontent records where the associated blogpost has the topic you pass in.
 
-* Tag: For convenience, you can pass in the name of a tag and receive only blogpostcontent records where the associated blogpost has the tag you pass in.
+* Tag: For convenience, you can pass in the name of a tag (?tag=<tag name>) and receive only blogpostcontent records where the associated blogpost has the tag you pass in.
+
+* Type: add ?type=TYPE to filter results to only blogpostcontents for whom their blogpost is a webinar or blogpost. Possible values of TYPE:
+    * webinar
+    * blogpost
+
+* Ordering: use ?ordering=<ordering type> to change the order you receive the results in. Possible values are:
+  * id: sort by id ascending
+  * -id: sort by id descending
+  * publish_at: sort by publish_at field, oldest to newest.
+  * -pubish_at: sort by publish_at field, newest to oldest.
+
+<strong>Don't forget to combine these with ?published=true when showing published blogposts.</strong>
 
 POST - creates a new blogpostcontent. Use this when creating a post for the first time.
 
@@ -403,6 +415,21 @@ Sample Response:
     "profile_picture_url": "https://www.ocregister.com/wp-content/uploads/2020/03/uci-1.jpg",
     "page_description": "This is the page about UCI. I think it will be up to the content team to actually write a descriptive block of text about UCI. Also, I didn't check for copyrights on the image."
     }
+## localhost:8000/api/v1/mentor/
+<ins>description</ins>: Get a list of the mentors. Right now we can theoretically create mentors with a POST request, but there's nowhere in the UI to do that, so I'm not going to document that yet.
+
+<ins>Allowed Request</ins>
+
+GET
+
+<ins>Parameters</ins>
+
+* school: add ?school=<school name> to filter to the mentorw who mentor at the school specified by the name.
+* school_id: add ?school=<school name> to filter results to the mentors who mentor at the school specified by id.
+* school_directed: add ?school_directed=<school name> to get the director of a school
+* school_directed_id: add ?school_directed_id=<school id> to get the director of the school with id school id.
+
+POST
 ## localhost:8000/api/v1/blogpost/
 For the most part, we tried to make it so you would never have to call this endpoint, instead calling the blogpostcontent endpoint. Most information can be gained by calling that instead. This models exists so that in the future we can support having translations of blogposts.
 

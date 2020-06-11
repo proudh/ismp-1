@@ -4,7 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import styled from 'styled-components';
 
 const socialMediaList = [
-  { icon: 'twitter', url: 'https://twitter.com/explore', color: 'twitter' },
   {
     icon: 'facebook',
     url: 'https://www.facebook.com/internationalstudentmp',
@@ -15,18 +14,18 @@ const socialMediaList = [
     url: 'https://www.instagram.com/internationalstudentmp/',
     color: 'instagram'
   },
-  { icon: 'youtube', url: 'https://www.youtube.com/', color: 'youtube' },
   { icon: 'wechat', url: 'https://www.wechat.com/en', color: 'green' }
 ];
 
 const HeaderContainer = styled.div`
-  margin: 0 2px;
+  margin-left: 15px;
+  margin-top: 15px;
 `;
 
 const SocialIconList = ({ isHeader }) => {
   const socialMediaIconList = socialMediaList.map((social, index) => {
     return (
-      <HeaderContainer key={social.icon}>
+      <HeaderContainer key={social.icon} >
         <a href={social.url} target="_blank" rel="noopener noreferrer">
           <Button
             className={`ui ${social.icon} icon button`}

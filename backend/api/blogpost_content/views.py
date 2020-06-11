@@ -3,7 +3,7 @@ These views pertain to BlogpostContent.
 """
 from datetime import datetime
 from django.contrib.postgres.search import SearchVector
-from rest_framework import generics, viewsets, status
+from rest_framework import filters, generics, viewsets, status
 from rest_framework.response import Response
 from .models import BlogpostContent
 from .serializers import BlogpostContentSerializer
@@ -50,6 +50,9 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
     """
     queryset = BlogpostContent.objects.all()
     serializer_class = BlogpostContentSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['publish_at', 'id', 'title_content']
+    ordering = ['-id']
 
     def get_queryset(self):
         """
@@ -61,6 +64,7 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
         """
         queried_author = self.request.query_params.get('author', None)
         queried_blogpost = self.request.query_params.get('blogpost', None)
+        queried_blogpost_type = self.request.query_params.get('type', None)
         queried_language = self.request.query_params.get('language', None)
         queried_tag_name = self.request.query_params.get('tag', None)
         queried_topic_name = self.request.query_params.get('topic', None)
@@ -80,6 +84,8 @@ class BlogpostContentViewSet(viewsets.ModelViewSet):  # pylint: disable=too-many
             result = result.filter(language=queried_language)
         if queried_blogpost is not None:
             result = result.filter(blogpost=queried_blogpost)
+        if queried_blogpost_type is not None:
+            result = result.filter(blogpost__type=queried_blogpost_type)
         if queried_tag_name is not None:
             result = result.filter(blogpost__tag__name=queried_tag_name)
         if queried_topic_name is not None:

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from api.blogpost.models import Blogpost, Tag, Topic
 
+
 class BlogpostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blogpost
@@ -15,6 +16,7 @@ class BlogpostSerializer(serializers.ModelSerializer):
         )
         depth = 1
 
+
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
@@ -23,7 +25,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 class TopicSerializer(serializers.ModelSerializer):
     blogpost = BlogpostSerializer(many=True, read_only=True)
+
     class Meta:
         model = Topic
         fields = '__all__'
-

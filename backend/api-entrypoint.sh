@@ -22,8 +22,16 @@ python manage.py collectstatic --no-input
 # calls to loaddata are atomic, if we don't do this then one bad fixture will
 # stop anything from being loaded into the db.
 echo "Load mockup data"
+echo "Loading initial blogposts and blogpostcontents"
 python manage.py loaddata superuser.json blogpost.json blogpost_content.json
-python manage.py loaddata school.json mentor.json
+
+echo "loading mentor information"
+python manage.py loaddata mentor.json
+
+echo "loading school information"
+python manage.py loaddata school.json
+
+echo "loading topics"
 python manage.py loaddata topic.json
 
 if [[ "$1" == 'test' ]]; then
@@ -31,7 +39,7 @@ if [[ "$1" == 'test' ]]; then
   flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics && \
   flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics && \
   pylint --rcfile=/app/api/pylintrc api && \
-  python manage.py test api.application_form api.school api.blogpost api.blogpost_content
+  python manage.py test api.application_form api.school api.blogpost api.blogpost_content api.mentor
 else
   # Start server
   python manage.py runserver 0.0.0.0:8000

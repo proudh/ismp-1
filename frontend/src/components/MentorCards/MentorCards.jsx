@@ -131,9 +131,9 @@ export class MentorCards extends React.Component {
   render() {
     return (
       <Container>
-        {mentorsInfo.map(info => {
+        {mentorsInfo.map((info, i) => {
           return (
-            <MentorCard>
+            <MentorCard key={i}>
               <Profile>
                 <Image src={info.image} alt="test" />
                 <Description>{info.name}</Description>
