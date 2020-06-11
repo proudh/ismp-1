@@ -11,6 +11,7 @@ class BlogpostContentSerializer(serializers.ModelSerializer):
     # read_only must be set to true for many-to-many fields (tag_set, topic_set)
     # to show up.
     blogpost = BlogpostSerializer(read_only=True)
+
     class Meta:
         model = BlogpostContent
         fields = (

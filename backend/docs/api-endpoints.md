@@ -182,6 +182,10 @@ GET - gets the existing blogpostcontents. For populating pages.
 
 * Tag: For convenience, you can pass in the name of a tag (?tag=<tag name>) and receive only blogpostcontent records where the associated blogpost has the tag you pass in.
 
+* Type: add ?type=TYPE to filter results to only blogpostcontents for whom their blogpost is a webinar or blogpost. Possible values of TYPE:
+    * webinar
+    * blogpost
+
 * Ordering: use ?ordering=<ordering type> to change the order you receive the results in. Possible values are:
   * id: sort by id ascending
   * -id: sort by id descending
