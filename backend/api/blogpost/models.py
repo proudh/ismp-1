@@ -13,7 +13,8 @@ class Blogpost(models.Model):
     class Meta:
         ordering = ['-id']
 
-    media_url = models.URLField(max_length=1000, blank=True)
+    media_url = models.URLField(max_length=1000, blank=True)  # the main header media
+    thumbnail_url = models.URLField(max_length=1000, blank=True)  # smaller thumbnail
     author = models.ForeignKey(
         'profiles.Profile', on_delete=models.CASCADE, related_name='blogpost', default=1
     )
@@ -22,9 +23,10 @@ class Blogpost(models.Model):
     is_featured = models.BooleanField(default=False)
 
     def __str__(self):
-        return "{} - {} - {} - {} - {}".format(
+        return "{} - {} - {} - {} - {} - {}".format(
             self.id,
             self.media_url,
+            self.thumbnail_url,
             self.author,
             self.slug,
             self.is_featured
