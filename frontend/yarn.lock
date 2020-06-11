@@ -269,6 +269,22 @@
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.10.1.tgz#c6f4be1cbc15e3a868e4c64a17d5d31d754da35f"
   integrity sha512-UQ1LVBPrYdbchNhLwj6fetj46BcFwfS4NllJo/1aJsT+1dLTEnXJL0qHqtY7gPzF8S2fXBJamf1biAXV3X077g==
+<<<<<<< HEAD
+  dependencies:
+    "@babel/types" "^7.10.1"
+
+"@babel/helper-validator-identifier@^7.10.1":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.1.tgz#5770b0c1a826c4f53f5ede5e153163e0318e94b5"
+  integrity sha512-5vW/JXLALhczRCWP0PnFDMCJAchlBvM7f4uk/jXritBnIa6E1KmqmtrS3yn1LAnxFBypQ3eneLuXjsnfQsgILw==
+
+"@babel/helper-wrap-function@^7.10.1":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/helper-wrap-function/-/helper-wrap-function-7.10.1.tgz#956d1310d6696257a7afd47e4c42dfda5dfcedc9"
+  integrity sha512-C0MzRGteVDn+H32/ZgbAv5r56f2o1fZSA/rj/TYo8JEJNHg+9BdSmKBUND0shxWRztWhjlT2cvHYuynpPsVJwQ==
+  dependencies:
+    "@babel/helper-function-name" "^7.10.1"
+=======
   dependencies:
     "@babel/types" "^7.10.1"
 
@@ -292,6 +308,17 @@
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.10.1.tgz#a6827b7cb975c9d9cef5fd61d919f60d8844a973"
   integrity sha512-muQNHF+IdU6wGgkaJyhhEmI54MOZBKsFfsXFhboz1ybwJ1Kl7IHlbm2a++4jwrmY5UYsgitt5lfqo1wMFcHmyw==
   dependencies:
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
+    "@babel/template" "^7.10.1"
+    "@babel/traverse" "^7.10.1"
+    "@babel/types" "^7.10.1"
+
+<<<<<<< HEAD
+"@babel/helpers@^7.10.1", "@babel/helpers@^7.9.0":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.10.1.tgz#a6827b7cb975c9d9cef5fd61d919f60d8844a973"
+  integrity sha512-muQNHF+IdU6wGgkaJyhhEmI54MOZBKsFfsXFhboz1ybwJ1Kl7IHlbm2a++4jwrmY5UYsgitt5lfqo1wMFcHmyw==
+  dependencies:
     "@babel/template" "^7.10.1"
     "@babel/traverse" "^7.10.1"
     "@babel/types" "^7.10.1"
@@ -301,6 +328,13 @@
   resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.10.1.tgz#841d098ba613ba1a427a2b383d79e35552c38ae0"
   integrity sha512-8rMof+gVP8mxYZApLF/JgNDAkdKa+aJt3ZYxF8z6+j/hpeXL7iMsKCPHa2jNMHu/qqBwzQF4OHNoYi8dMA/rYg==
   dependencies:
+=======
+"@babel/highlight@^7.0.0", "@babel/highlight@^7.10.1", "@babel/highlight@^7.8.3":
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.10.1.tgz#841d098ba613ba1a427a2b383d79e35552c38ae0"
+  integrity sha512-8rMof+gVP8mxYZApLF/JgNDAkdKa+aJt3ZYxF8z6+j/hpeXL7iMsKCPHa2jNMHu/qqBwzQF4OHNoYi8dMA/rYg==
+  dependencies:
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
     "@babel/helper-validator-identifier" "^7.10.1"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
@@ -1085,6 +1119,13 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@7.10.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@7.9.0":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.0.tgz#337eda67401f5b066a6f205a3113d4ac18ba495b"
@@ -1092,6 +1133,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+<<<<<<< HEAD
 "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.10.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
@@ -1099,6 +1141,8 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+=======
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
 "@babel/template@^7.10.1", "@babel/template@^7.4.0", "@babel/template@^7.8.6":
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.10.1.tgz#e167154a94cb5f14b28dc58f5356d2162f539811"
@@ -6834,6 +6878,7 @@ html-minifier-terser@^5.0.1:
     relateurl "^0.2.7"
     terser "^4.6.3"
 
+<<<<<<< HEAD
 html-parse-stringify2@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
@@ -6846,6 +6891,13 @@ html-react-parser@^0.12.0:
   resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-0.12.0.tgz#8341de810727a452bffd1672afdf02145ee0077f"
   integrity sha512-iFJlDTR9PcVDmyKSDCX79GJ41J24HmsRMMMwvXFYSIKGtf8F2ll29XvExF3okd88IOMIEx9uWxkNS6+DWuFAew==
   dependencies:
+=======
+html-react-parser@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-0.12.0.tgz#8341de810727a452bffd1672afdf02145ee0077f"
+  integrity sha512-iFJlDTR9PcVDmyKSDCX79GJ41J24HmsRMMMwvXFYSIKGtf8F2ll29XvExF3okd88IOMIEx9uWxkNS6+DWuFAew==
+  dependencies:
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
     "@types/htmlparser2" "3.10.1"
     html-dom-parser "0.3.0"
     react-property "1.0.1"
@@ -11026,7 +11078,11 @@ react-error-overlay@^6.0.3, react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+<<<<<<< HEAD
 react-fast-compare@^3.0.1:
+=======
+react-fast-compare@3.2.0, react-fast-compare@^3.0.1:
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -11220,6 +11276,23 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+<<<<<<< HEAD
+=======
+react-semantic-ui-datepickers@^2.7.0-beta.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/react-semantic-ui-datepickers/-/react-semantic-ui-datepickers-2.7.0.tgz#ba36ac7ad31843aca12590e5b107ca52b7d3f6b7"
+  integrity sha512-37TycqyF47NedxSEAaXrm+J0oexhjx2MGRUuiRGFco9ZFNtsvZG23AWzSBCQ5Wl5JlMupDwT6qVGMOYekugnVQ==
+  dependencies:
+    "@babel/runtime" "7.10.2"
+    "@date-fns/upgrade" "1.0.3"
+    classnames "2.2.6"
+    core-js "3.6.5"
+    date-fns "2.14.0"
+    dayzed "3.1.0"
+    format-string-by-pattern "1.2.1"
+    react-fast-compare "3.2.0"
+
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
 react-sizeme@^2.6.7:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/react-sizeme/-/react-sizeme-2.6.12.tgz#ed207be5476f4a85bf364e92042520499455453e"

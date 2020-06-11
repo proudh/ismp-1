@@ -8,7 +8,11 @@ const Container = styled.div`
   /* grid-column: 1 / 15; */
   width: 100%;
   padding: 40px;
+<<<<<<< HEAD
   background-color: ${theme.colors.blue};
+=======
+  background-color: ${theme.colors.darkGrey};
+>>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
   text-align: center;
   display: grid;
   justify-items: center;
