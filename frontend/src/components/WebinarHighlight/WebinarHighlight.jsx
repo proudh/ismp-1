@@ -20,6 +20,7 @@ const WebinarHighlight = ({ title, id, blog }) => {
   return (
     <div>
       <Embed
+        aspectRatio="16:9"
         autoplay={false}
         active={true}
         icon="arrow circle down"

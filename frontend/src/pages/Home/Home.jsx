@@ -99,10 +99,12 @@ const Home = () => {
           <StyledParagraph>{t('who_section.blurb')}</StyledParagraph>
         </div>
         <Embed
+          aspectRatio="16:9"
           autoplay={false}
           active={true}
           icon="arrow circle down"
           id="Pcmwvi212jE"
+          iframe={{ allowFullScreen: true }}
           placeholder="/images/image-16by9.png"
           source="youtube"
         />
@@ -119,6 +121,7 @@ const Home = () => {
           <StyledParagraph>{t('diff_section.blurb')}</StyledParagraph>
         </div>
         <Embed
+          aspectRatio="16:9"
           autoplay={false}
           active={true}
           icon="arrow circle down"
