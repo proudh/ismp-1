@@ -1,3 +1,4 @@
+"""When people apply for ISMP, these fields are stored."""
 from datetime import date
 from hashlib import md5
 from django.conf import settings
@@ -88,7 +89,7 @@ Phone number must be entered in the format: '+999999999'. Up to 15 digits allowe
                 email_hash.hexdigest(),  # subscriber_hash
                 new_user_data)
 
-            tags_to_add = ['applied', 'mentee']
+            tags_to_add = ['applied']
             # To add a tag, you have to send a dict with the 'name': TAG_NAME and also
             # 'status':'active'. Good luck finding this in any documentation about mailchimp3.
             tag_list = [{'name': tag_name, 'status': 'active'} for tag_name in tags_to_add]

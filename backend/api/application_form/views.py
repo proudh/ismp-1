@@ -49,7 +49,7 @@ class SubscribeNewsletterView(views.APIView):
 
             # due to the way the mailchimp API works, if we use create_or_update above we
             # have to set the tags for the user separately in another API call.
-            tags_to_add = ['newsletter', 'mentee']
+            tags_to_add = ['newsletter']
             # To add a tag, you have to send a dict with the 'name': TAG_NAME and also
             # 'status':'active'. Good luck finding this in any documentation about mailchimp3.
             tag_list = [{'name': tag_name, 'status': 'active'} for tag_name in tags_to_add]
