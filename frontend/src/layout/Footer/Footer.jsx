@@ -9,6 +9,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+import logo from '../../images/ISMP_logo.png';
 import SocialMediaIconList from '../../components/SocialIconsList';
 
 const style = {
@@ -16,46 +17,74 @@ const style = {
     margin: '0',
     padding: '3em 0em',
     width: '100%',
+    backgroundColor: '#628BF3',
+  },
+  footerContentSection: {
+    fontFamily: 'Poppins',
+    fontSize: '24px',
+    lineHeight: '36px',
+  },
+  footerLink: {
+    fontFamily: 'Poppins',
+    fontSize: '18px',
+    lineHeight: '30px',
+    color: 'white',
+  },
+  applyNowButton: {
+    fontFamily: 'Poppins',
+    fontSize: '20px',
+    background: '#FDC82E',
+    borderRadius: '8px',
+    height: '75px',
+    padding: '26px'
+  },
+  rights: {
+    color: 'white',
+    fontFamily: 'Poppins',
+    fontSize: '16px',
+    lineHeight: '24px',
+    textAlign: 'right',
+    padding: '19px',
+  },
+  languages: {
+    color: 'white',
+    fontFamily: 'Poppins',
+    fontSize: '16px',
+    lineHeight: '24px',
+    marginLeft: '50px'
   }
 };
 
 const footerContent = [
   {
-    section: 'Contact Us',
+    section: 'About Us',
     links: [
-      { text: '(858) 123-4567', link: 'tel: (858)123-4567' },
-      { text: '123 Main St. San Diego, CA 92122', link: '/' }
+      { text: 'Who We Are', link: '/about' },
+      { text: 'Leadership', link: '/leadership' }
     ],
     width: 4
   },
   {
-    section: 'About Us',
+    section: 'Learn',
     links: [
-      { text: 'Our History', link: '/about' },
-      { text: 'Mission + Values', link: '/about' },
-      { text: 'Our Program', link: '/program' },
-      { text: 'Mentors', link: '/mentors' },
-      { text: 'Leadership', link: '/leadership' },
-      { text: 'Testimonials', link: '/stories' },
-      { text: 'Contact Us', link: '/contact' }
+      { text: 'Program', link: '/program' },
+      { text: 'Mentors', link: '/ment' },
+      { text: 'Blog', link: '/blog' },
     ],
     width: 3
   },
   {
-    section: 'Blog',
+    section: 'Legal',
     links: [
-      { text: 'Webinar', link: '/blog' },
-      { text: 'Podcast', link: '/blog' },
-      { text: 'Videos', link: '/blog' }
+      { text: 'Terms of Use', link: '/blog' },
+      { text: 'Privacy Policy', link: '/blog' },
     ],
     width: 3
   },
   {
-    section: 'Program',
+    section: 'Contact',
     links: [
-      { text: 'Link', link: '/' },
-      { text: 'Link', link: '/' },
-      { text: 'Link', link: '/' }
+      { text: 'Email Us', link: 'mailto:info@internationalmentorship.org' },
     ],
     width: 3
   }
@@ -71,7 +100,7 @@ const privacyLinks = [
 const footerLinks = linkArr => {
   return linkArr.map((linkObj, index) => {
     return (
-      <List.Item as={Link} key={`${linkObj.text}_${index}`} to={linkObj.link}>
+      <List.Item as={Link} key={`${linkObj.text}_${index}`} to={linkObj.link} style={style.footerLink}>
         {linkObj.text}
       </List.Item>
     );
@@ -82,7 +111,7 @@ const links = contentArr => {
   return contentArr.map((content, index) => {
     return (
       <Grid.Column width={content.width} key={index}>
-        <Header inverted as="h4" content={content.section} />
+        <Header inverted as="h4" content={content.section} style={style.footerContentSection} />
         <List link inverted>
           {footerLinks(content.links)}
         </List>
@@ -93,25 +122,34 @@ const links = contentArr => {
 
 const Footer = () => {
   return (
-    <Segment inverted vertical style={style.footerContainer}>
+    <Segment vertical style={style.footerContainer}>
       <Container>
         <Grid inverted stackable textAlign="left">
           <Grid.Row>
             {links(footerContent)}
             <Grid.Column width={3}>
-              <Button size="tiny" as="a" inverted={false}>
-                Apply Now
+              <Button size="massive" as="a" inverted={false} style={style.applyNowButton}>
+                APPLY NOW
               </Button>
+              <SocialMediaIconList/>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column floated="left" width={4}>
-              <SocialMediaIconList />
-            </Grid.Column>
-            <Grid.Column floated="right" width={6}>
-              <List horizontal inverted divided link size="small">
-                {footerLinks(privacyLinks)}
+            <Grid.Column floated="left" width={5}>
+              <List horizontal inverted size="small">
+                <List.Item inverted>
+                  <img src={logo} alt="ISMP" style={{ width: '53px' }} />
+                </List.Item>
+                <List.Item inverted style={style.languages}>
+                  EN
+                </List.Item>
+                <List.Item inverted style={style.languages}>
+                  中文
+                </List.Item>
               </List>
+            </Grid.Column>
+            <Grid.Column floated="right" width={10}>
+              <div style={style.rights}>© 2020 International Student Mentorship Program. All rights reserved.</div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
