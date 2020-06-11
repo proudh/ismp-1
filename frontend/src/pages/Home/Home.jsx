@@ -4,6 +4,7 @@ import Subscribe from 'components/Subscribe';
 import WebinarHighlight from 'components/WebinarHighlight';
 import { Link, useParams } from 'react-router-dom';
 import HeroImage from 'components/HeroImage/HeroImage';
+import TestimonialCards from "components/TestimonialCards/TestimonialCards";
 import theme from '../../styles/theme';
 import { Blogposts } from '../../utils/agent';
 import { useTranslation } from 'react-i18next';
@@ -130,6 +131,7 @@ const Home = () => {
           source="youtube"
         />
       </DuoContainer>
+        <TestimonialCards />
 
       <TitleContainer>
         <SubTitle>Webinar Highlights</SubTitle>
