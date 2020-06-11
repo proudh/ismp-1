@@ -9,25 +9,32 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+import './Footer.css';
+
+
 import SocialMediaIconList from '../../components/SocialIconsList';
 
 const style = {
-  footerContainer: {
-    margin: '0',
-    padding: '3em 0em',
-    width: '100%',
-  }
+
 };
 
+const footerContactUs = () => {
+  return (
+    <Grid.Column width={4}>
+      <Header inverted as="h4" content="Contact Us" />
+      <List inverted>
+        <List.Item class='footerContactUsText'>
+          (858) 123-4567
+        </List.Item>
+        <List.Item class='footerContactUsText'>
+          123 Main St. San Diego, CA 92122
+        </List.Item>
+      </List>
+    </Grid.Column>
+  )
+}
+
 const footerContent = [
-  {
-    section: 'Contact Us',
-    links: [
-      { text: '(858) 123-4567', link: 'tel: (858)123-4567' },
-      { text: '123 Main St. San Diego, CA 92122', link: '/' }
-    ],
-    width: 4
-  },
   {
     section: 'About Us',
     links: [
@@ -93,10 +100,11 @@ const links = contentArr => {
 
 const Footer = () => {
   return (
-    <Segment inverted vertical style={style.footerContainer}>
+    <Segment inverted vertical class="footerContainer">
       <Container>
         <Grid inverted stackable textAlign="left">
           <Grid.Row>
+            {footerContactUs()}
             {links(footerContent)}
             <Grid.Column width={3}>
               <Button size="tiny" as="a" inverted={false}>

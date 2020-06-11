@@ -1,0 +1,13 @@
+.footerContactUsText {
+  color: rgba(255, 255, 255, .5);
+}
+
+.footerContactUsText:hover {
+  color: white;
+}
+
+.footerContainer: {
+  margin: '0';
+  padding: '3em 0em';
+  width: '100%';
+}
