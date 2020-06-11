@@ -8,15 +8,9 @@ import {
   Segment
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
-import './Footer.css';
-
-
 import SocialMediaIconList from '../../components/SocialIconsList';
 
-const style = {
-
-};
+import './Footer.css';
 
 const footerContactUs = () => {
   return (
