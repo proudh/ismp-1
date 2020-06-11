@@ -8,11 +8,7 @@ const Container = styled.div`
   /* grid-column: 1 / 15; */
   width: 100%;
   padding: 40px;
-<<<<<<< HEAD
   background-color: ${theme.colors.blue};
-=======
-  background-color: ${theme.colors.darkGrey};
->>>>>>> b42faced4326768c24a3a89eccac09f028d5b6bc
   text-align: center;
   display: grid;
   justify-items: center;
@@ -28,14 +24,15 @@ const Title = styled.h3`
 `;
 
 const StyledInput = styled(Input)`
-  width: 40%;
-  min-width: 450px;
-  height: 40px;
-  /* box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.1); */
-  font-family: ${theme.fonts.Poppins};
-  font-style: normal;
-  font-weight: normal;
-  font-size: ${theme.fontSizes.xs};
+  &&& {
+    width: 50%;
+    min-width: 32rem;
+    height: 3rem;
+    font-family: ${theme.fonts.Poppins};
+    font-style: normal;
+    font-weight: normal;
+    font-size: ${theme.fontSizes.xs};
+  }
 `;
 
 const SearchButton = styled(Button)`
@@ -43,25 +40,20 @@ const SearchButton = styled(Button)`
     font-family: ${theme.fonts.Poppins};
     font-style: normal;
     font-weight: normal;
-    font-size: ${theme.fontSizes.xs};
     color: ${theme.colors.black};
     background: ${theme.colors.yellow};
+    /* width: 30%; */
   }
 `;
 
 const Subscribe = () => {
   const [email, setEmail] = useState('');
 
-  const submitOnEnter = event => {
-    if (event.key === 'Enter') {
-      handleSubmit(event);
-    }
-  };
-
   const handleSubmit = event => {
     let body = {
       email: email
     };
+
     SubscribeNewsletter.post(body).then(response => {
       if (response['error']) {
         alert(response['error']);
@@ -74,32 +66,26 @@ const Subscribe = () => {
   const handleChange = (event, data) => {
     event.preventDefault();
     event.stopPropagation();
-    //     console.log(data.value);
     setEmail(data.value);
   };
 
   return (
     <Container>
       <Title>Subscribe to our monthly newsletter</Title>
-      {/* <SearchContainer> */}
       <StyledInput
         fluid
         placeholder="Email Address"
         type="email"
         onChange={handleChange}
-        action
-        label={
+        action={
           <SearchButton
             type="submit"
             onClick={handleSubmit}
             content="Subscribe"
           />
         }
-        labelPosition="right"
+        actionPosition="right"
       />
-      {/* <input onKeyPress={submitOnEnter} /> */}
-      {/* </StyledInput> */}
-      {/* </SearchContainer> */}
     </Container>
   );
 };

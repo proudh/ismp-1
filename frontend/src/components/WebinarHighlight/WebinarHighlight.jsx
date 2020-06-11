@@ -11,7 +11,7 @@ const WebinarLink = Styled(Link)`
     font-size: ${theme.fontSizes.sm};
     padding: 0;
     color: ${theme.colors.purple};
-    &:active: {
+    &:hover: {
       color: ${theme.colors.darkYellow};
     }
 `;
