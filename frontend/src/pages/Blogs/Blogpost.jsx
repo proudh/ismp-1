@@ -13,6 +13,8 @@ const Container = Styled.div`
 `;
 
 const BlogContentContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
@@ -56,6 +58,22 @@ const DateAndAuthor = Styled.div`
   font-size: 18px;
   font-style: italic;
   text-align: center;
+  margin-bottom: 48px;
+`;
+
+const HeaderImg = Styled.img`
+  width: 1050px;
+  height: 590px;
+  background-color: ${props => props.theme.colors.black};
+  align-self: center;
+  margin-bottom: 48px;
+`;
+
+const HeaderVideo = Styled.iframe`
+  width: 1050px;
+  height: 590px;
+  align-self: center;
+  margin-bottom: 48px;
 `;
 
 const BlogDataContainer = Styled.div`
@@ -78,7 +96,7 @@ const BlogDataContainer = Styled.div`
   & h3 {
     font-size: ${props => props.theme.fontSizes.h3};
   }
-  & p {
+  & p, div {
     font-size: ${props => props.theme.fontSizes.p};
   }
 `;
@@ -120,6 +138,7 @@ const RecommendedArticlesHeader = Styled.div`
   margin: 64px 10%;
   font-size: ${props => props.theme.fontSizes.h3};
   font-family: ${props => props.theme.fonts.PTSerif};
+  font-weight: bold;
 `;
 
 const Line = Styled.div`
@@ -148,14 +167,34 @@ class Blogpost extends Component {
       .then(result => {
         this.setState({
           blogpostcontent: result,
-          content: result.body_content
+          content: result.body_content,
+          blogPostData: result.blogpost
         });
       });
   }
 
+  getBlogData() {
+    return this.state.blogPostData ? {
+      bio: this.state.blogPostData.author.bio,
+      topic: this.state.blogPostData.topic_set[0].name,
+      headerMedia: this.state.blogPostData.media_url
+    } : {
+      bio: '',
+      topic: '',
+      headerMedia: ''
+    }
+  }
+
+  renderHeaderMedia(headerMedia) {
+    if(headerMedia.includes('youtube')) {
+      return <HeaderVideo src={headerMedia}></HeaderVideo>
+    } else {
+      return <HeaderImg src={headerMedia} alt='header'/>
+    }
+  }
+
   render() {
-    console.log('blogpostcontent: ', this.state.blogpostcontent);
-    const bio = this.state.blogpostcontent.blogpost && this.state.blogpostcontent.blogpost.author.bio;
+    const { bio, topic, headerMedia } = this.getBlogData();
     return (
       <Container>
         <BlogContentContainer>
@@ -163,11 +202,12 @@ class Blogpost extends Component {
             <ArrowLeft src={arrowLeft} alt="arrow-left"/>
             Blog Home
           </BlogHomeLink>
-          <BlogTopic>{this.state.blogpostcontent.title_content}</BlogTopic>
+          <BlogTopic>{topic || this.state.blogpostcontent.title_content}</BlogTopic>
           <BlogTitle>{this.state.blogpostcontent.title_content}</BlogTitle>
           <DateAndAuthor>
             {moment(this.state.blogpostcontent.publish_at).format('MMMM DD, YYYY')} by {bio ? bio : 'Unknown Author'}
           </DateAndAuthor>
+          { this.renderHeaderMedia(headerMedia || '') }
           <BlogDataContainer>
             <RenderBlog
               blogpostcontent_id={this.state.blogpostcontent_id}
