@@ -2,7 +2,7 @@ import Section from '../../layout/Section';
 import React from 'react';
 import ProgramCard from '../../components/ProgramCard/ProgramCard';
 import Styled from 'styled-components';
-import { BodyContainer } from '../../layout/BodyContainer/BodyContainer';
+import {Container} from 'semantic-ui-react';
 
 import programData from './data';
 
@@ -19,7 +19,7 @@ const Header = Styled.div`
 
 const Program = () => {
   return (
-    <BodyContainer>
+    <Container>
       <Section>
         <Header>
           <h2>Our Program</h2>
@@ -34,7 +34,7 @@ const Program = () => {
           })}
         </ProgramContainer>
       </Section>
-    </BodyContainer>
+    </Container>
   );
 };
 
