@@ -1,3 +1,5 @@
+import PageHeader from 'components/PageHeader';
+import Section from 'layout/Section';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Image } from 'semantic-ui-react';
@@ -24,13 +26,9 @@ const StyledLink = Styled(Link)`
 
 const About = () => {
   return (
-    <>
+    <Section>
+      <PageHeader title="About Us"></PageHeader>
       <Grid doubling stackable>
-        <Grid.Row columns={1}>
-          <Grid.Column>
-            <h1>About Us</h1>
-          </Grid.Column>
-        </Grid.Row>
         <Grid.Row columns={2}>
           <Grid.Column width={10}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
@@ -113,7 +111,7 @@ const About = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </>
+    </Section>
   );
 };
 
