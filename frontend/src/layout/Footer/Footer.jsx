@@ -68,7 +68,7 @@ const footerContent = [
     section: 'Learn',
     links: [
       { text: 'Program', link: '/program' },
-      { text: 'Mentors', link: '/ment' },
+      { text: 'Mentors', link: '/mentors' },
       { text: 'Blog', link: '/blog' },
     ],
     width: 3
@@ -76,8 +76,8 @@ const footerContent = [
   {
     section: 'Legal',
     links: [
-      { text: 'Terms of Use', link: '/blog' },
-      { text: 'Privacy Policy', link: '/blog' },
+      { text: 'Terms of Use', link: '/terms' },
+      { text: 'Privacy Policy', link: '/privacy' },
     ],
     width: 3
   },
@@ -88,13 +88,6 @@ const footerContent = [
     ],
     width: 3
   }
-];
-
-const privacyLinks = [
-  { text: 'Privacy', link: '/privacy' },
-  { text: 'Terms', link: '/terms' },
-  { text: 'Sitemap', link: '/' },
-  { text: 'Cookies Policy', link: '/' }
 ];
 
 const footerLinks = linkArr => {

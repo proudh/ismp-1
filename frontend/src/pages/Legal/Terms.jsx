@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 import theme from '../../styles/theme';
 import { Grid } from 'semantic-ui-react';
+import { BodyContainer } from '../../layout/BodyContainer/BodyContainer';
 
 const StyledBodyText = Styled.p`
     font-family: ${theme.fonts.Poppins};
@@ -13,6 +14,7 @@ const StyledBodyText = Styled.p`
 
 const Terms = () => {
   return (
+    <BodyContainer>
       <Grid doubling stackable>
         <Grid.Row columns={1}>
           <Grid.Column>
@@ -199,6 +201,7 @@ const Terms = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+     </BodyContainer>
   );
 };
 

@@ -13,12 +13,6 @@ import Spinner from '../../components/Spinner/Spinner.component';
 
 import { getWidth } from './responsiveUtils';
 
-const style = {
-  body: {
-    paddingTop: '1rem',
-  }
-};
-
 const DesktopContainer = ({ children }) => {
   const [fixed, setFixed] = useState(null);
 
@@ -54,11 +48,7 @@ const DesktopContainer = ({ children }) => {
           </Menu>
         </Segment>
       </Visibility>
-
-      <Container style={style.body}>
-        {children}
-      </Container>
-
+      {children}
       <Footer />
     </Responsive>
   );

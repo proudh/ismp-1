@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Image } from 'semantic-ui-react';
 import Styled from 'styled-components';
+import { BodyContainer } from '../../layout/BodyContainer/BodyContainer';
 
 import CollegeCardList from '../../components/CollegeCard';
 import theme from '../../styles/theme';
@@ -24,7 +25,7 @@ const StyledLink = Styled(Link)`
 
 const About = () => {
   return (
-    <>
+    <BodyContainer>
       <Grid doubling stackable>
         <Grid.Row columns={1}>
           <Grid.Column>
@@ -113,7 +114,7 @@ const About = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </>
+    </BodyContainer>
   );
 };
 
