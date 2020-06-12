@@ -9,7 +9,7 @@ const Header = Styled.div`
 const PageHeader = ({ title, description }) => (
   <Header>
     <h2>{title}</h2>
-    {!!description ? <p>{description}</p> : ''}
+    {description && <p>{description}</p>}
   </Header>
 );
 
