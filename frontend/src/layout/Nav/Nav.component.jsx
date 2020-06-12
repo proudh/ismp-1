@@ -11,14 +11,11 @@ const navLinks = [
   {
     text: 'About Us',
     i18n_key: 'about_us',
-    link: '/about'
+    link: '/about',
   },
-  { text: 'Program', i18n_key: 'program', link: '/program' },
   { text: 'Mentors', i18n_key: 'mentors', link: '/mentors' },
-  { text: 'Stories', i18n_key: 'stories', link: '/stories' },
-  { text: 'Blog', i18n_key: 'blog', link: '/blog' }
-  // { text: 'Mentors', link: '/mentors', mobileOnly: true },
-  // { text: 'Contact Us', link: '/contact' }
+  { text: 'Program', i18n_key: 'program', link: '/program' },
+  { text: 'Blog', i18n_key: 'blog', link: '/blog' },
 ];
 
 const Nav = ({ mobile, history }) => {
@@ -27,7 +24,7 @@ const Nav = ({ mobile, history }) => {
 
   return (
     <>
-      <Menu.Item as={Link} name="home" position="left" to="/">
+      <Menu.Item as={Link} name="home" position="left" to="/" style={{ paddingLeft: '0px' }}>
         <img src={logo} alt="ISMP" style={{ width: '2.5em' }} />
       </Menu.Item>
       <Menu.Menu position="right">
